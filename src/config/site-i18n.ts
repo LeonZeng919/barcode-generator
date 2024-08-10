@@ -13,7 +13,7 @@ type SiteConfig = {
 
 const siteConfigBase: Record<Locale, SiteConfig> = {
   en: {
-    name: "barcode generator",
+    name: "free barcode generator",
     description: "This is a modern web development starter template that integrates Next.js, Tailwind CSS, ShadcnUI, and internationalization features, designed for quickly building efficient, customizable, and multilingual front-end projects.",
     mainNav: [
       {
@@ -32,7 +32,7 @@ const siteConfigBase: Record<Locale, SiteConfig> = {
     },
   },
   zh: {
-    name: "barcode generator",
+    name: "free barcode generator",
     description: "这是一个集成了Next.js、Tailwind CSS、ShadcnUI和国际化功能的现代化Web开发启动模板，旨在快速搭建高效、可定制且多语言支持的前端项目。",
     mainNav: [
       {
@@ -51,7 +51,7 @@ const siteConfigBase: Record<Locale, SiteConfig> = {
     },
   },
   fr: {
-    name: "barcode generator",
+    name: "free barcode generator",
     description: "Ceci est un modèle de démarrage de développement web moderne qui intègre Next.js, Tailwind CSS, ShadcnUI et des fonctionnalités d'internationalisation, conçu pour construire rapidement des projets front-end efficaces, personnalisables et multilingues.",
     mainNav: [
       {

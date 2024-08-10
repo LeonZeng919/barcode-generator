@@ -11,6 +11,7 @@ import { SiteHeader } from '@/components/Header'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
 import { NextIntlClientProvider } from 'next-intl'
+import Footer from '@/components/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -57,12 +58,13 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="relative flex min-h-screen flex-col">
-            <SiteHeader locale={locale} />
-            <NextIntlClientProvider locale={locale}>
+          <NextIntlClientProvider locale={locale}>
+            <div className="relative flex min-h-screen flex-col">
+              <SiteHeader locale={locale} />
               <div className="flex-1">{children}</div>
-            </NextIntlClientProvider>
-          </div>
+              <Footer />
+            </div>
+          </NextIntlClientProvider>
           <TailwindIndicator />
         </ThemeProvider>
       </body>
