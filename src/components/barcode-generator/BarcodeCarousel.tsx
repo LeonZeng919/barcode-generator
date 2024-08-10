@@ -55,9 +55,9 @@ export function BarcodeCarousel() {
                   >
                     {category.name}
                   </h2>
-                  <p className="mt-2 text-sm text-gray-600">
+                  {/* <p className="mt-2 text-sm text-gray-600">
                     {category.types[0].name}
-                  </p>
+                  </p> */}
                 </CardContent>
               </Card>
             </Link>

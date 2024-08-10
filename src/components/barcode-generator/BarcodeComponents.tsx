@@ -22,22 +22,24 @@ export const InputComponent: React.FC = () => {
   return (
     <div className="form-control">
       <label htmlFor="input" className="label">
-        <span className="label-text text-lg font-semibold">Input</span>
-        <span className="label-text-alt flex gap-4">
-          <Button
-            size="icon"
-            variant="ghost"
-            onClick={() => navigator.clipboard.writeText(input)}
-          >
-            <Copy className="h-5 w-5" />
-          </Button>
-        </span>
+        <div className="flex justify-between">
+          <span className="label-text text-lg font-semibold">Input</span>
+          <span className="label-text-alt flex gap-4">
+            <Button
+              size="icon"
+              variant="ghost"
+              onClick={() => navigator.clipboard.writeText(input)}
+            >
+              <Copy className="h-5 w-5" />
+            </Button>
+          </span>
+        </div>
       </label>
       <Textarea
         id="input"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="h-48"
+        className="h-40"
         placeholder="Enter values here, one per line"
       />
     </div>
@@ -62,17 +64,19 @@ export const OutputComponent: React.FC = () => {
   return (
     <div className="form-control">
       <label htmlFor="output" className="label">
-        <span className="label-text text-lg font-semibold">Output</span>
-        <span className="label-text-alt flex items-center justify-between gap-4">
-          <Button
-            size="icon"
-            variant="ghost"
-            onClick={() => navigator.clipboard.writeText(output)}
-          >
-            <Copy className="h-5 w-5" />
-          </Button>
-          {hasOverflow && <AutoScroll targetRef={outputRef} />}
-        </span>
+        <div className="flex justify-between">
+          <span className="label-text text-lg font-semibold">Output</span>
+          <span className="label-text-alt flex items-center justify-between gap-4">
+            <Button
+              size="icon"
+              variant="ghost"
+              onClick={() => navigator.clipboard.writeText(output)}
+            >
+              <Copy className="h-5 w-5" />
+            </Button>
+            {hasOverflow && <AutoScroll targetRef={outputRef} />}
+          </span>
+        </div>
       </label>
       <div
         ref={outputRef}
@@ -104,13 +108,16 @@ export const OptionsComponent: React.FC = () => {
   }
   return (
     <div>
-      <span className="label-text text-lg font-semibold">Options</span>
-      <span className="label-text-alt flex items-center gap-4">
-        <Button size="icon" variant="ghost">
-          <Settings className="h-5 w-5" />
-        </Button>
-      </span>
-      <div className="h-48 overflow-auto rounded-md border bg-transparent p-3 text-sm shadow-sm">
+      <div className="flex justify-between">
+        <span className="label-text text-lg font-semibold">Options</span>
+        <span className="label-text-alt flex items-center gap-4">
+          <Button size="icon" variant="ghost">
+            <Settings className="h-5 w-5" />
+          </Button>
+        </span>
+      </div>
+
+      <div className="xs:text-sm h-40 overflow-auto rounded-md border bg-transparent p-3 text-xs shadow-sm">
         <div className="grid grid-cols-2 gap-2 ">
           <div className="md:col-span-1">
             <Label htmlFor="barcodeType">Code Format</Label>
@@ -138,11 +145,11 @@ export const OptionsComponent: React.FC = () => {
               onValueChange={(value) => setShowText(value === 'yes')}
               className="flex items-center space-x-4"
             >
-              <div className="mt-2 flex items-center space-x-2">
+              <div className="mt-2 flex items-center">
                 <RadioGroupItem value="yes" id="showTextYes" />
                 <Label htmlFor="showTextYes">Yes</Label>
               </div>
-              <div className="mt-2 flex items-center space-x-2">
+              <div className="mt-2 flex items-center">
                 <RadioGroupItem value="no" id="showTextNo" />
                 <Label htmlFor="showTextNo">No</Label>
               </div>
