@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://barcode-maker.com
+
+# Sitemaps
+Sitemap: https://barcode-maker.com/sitemap.xml
