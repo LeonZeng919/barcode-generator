@@ -158,11 +158,11 @@ export const OptionsComponent: React.FC = () => {
               onValueChange={(value) => setShowText(value === 'yes')}
               className="flex items-center space-x-4"
             >
-              <div className="mt-2 flex items-center">
+              <div className="mt-2 flex items-center space-x-1">
                 <RadioGroupItem value="yes" id="showTextYes" />
                 <Label htmlFor="showTextYes">{t('options.show-yes')}</Label>
               </div>
-              <div className="mt-2 flex items-center">
+              <div className="mt-2 flex items-center space-x-1">
                 <RadioGroupItem value="no" id="showTextNo" />
                 <Label htmlFor="showTextNo">{t('options.show-no')}</Label>
               </div>

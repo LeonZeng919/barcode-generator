@@ -15,21 +15,18 @@ const BarcodeGeneratorContent: React.FC = () => {
 
   return (
     <main className="mx-auto w-full max-w-5xl p-5">
-      <div className="grid grid-cols-2 gap-2 ">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+        <div className="col-span-1 md:col-span-2">
           <BarcodeCarousel />
         </div>
-        <div className="col-span-1">
+        <div className=" order-2 col-span-1 ">
           <InputComponent />
         </div>
-        <div className="col-span-1">
+        <div className=" order-1 col-span-1 md:order-2">
           <OptionsComponent />
         </div>
-        <div className="col-span-2">
+        <div className=" order-2 col-span-1 md:col-span-2">
           <OutputComponent />
-        </div>
-        <div className="md:col-span-1 lg:col-span-1">
-          {/* <ShareButton /> */}
         </div>
       </div>
     </main>
