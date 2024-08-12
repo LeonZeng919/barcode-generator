@@ -31,10 +31,14 @@ export async function generateMetadata({
     },
     description: siteConfig.description,
     icons: {
-      icon: '/favicon.ico',
-      shortcut: '/favicon-16x16.png',
-      apple: '/apple-touch-icon.png',
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/favicon-16x16.png', sizes: '16x16' },
+        { url: '/favicon-32x32.png', sizes: '32x32' },
+      ],
+      apple: [{ url: '/apple-touch-icon.png' }],
     },
+    manifest: '/site.webmanifest',
   }
 }
 
