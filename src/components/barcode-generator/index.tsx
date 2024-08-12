@@ -8,6 +8,7 @@ import {
   OutputComponent,
 } from './BarcodeComponents'
 import { useBarcodeGenerator } from './useBarcodeGenerator'
+import { Locale } from '@/i18n'
 
 const BarcodeGeneratorContent: React.FC = () => {
   useBarcodeGenerator()
@@ -38,7 +39,8 @@ const BarcodeGeneratorContent: React.FC = () => {
 const BarcodeGenerator: React.FC<{
   codeFormat: string
   initialData: string
-}> = ({ codeFormat, initialData }) => {
+  locale: Locale
+}> = ({ codeFormat, initialData, locale }) => {
   return (
     <BarcodeProvider value={{ initCodeFormat: codeFormat, initialData }}>
       <BarcodeGeneratorContent />

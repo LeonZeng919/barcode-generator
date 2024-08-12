@@ -1,8 +1,26 @@
 {
   "Index": {
-    "title": "Ceci est un modèle de démarrage de développement web moderne qui intègre Next.js, Tailwind CSS, ShadcnUI et des fonctionnalités d'internationalisation, conçu pour construire rapidement des projets front-end efficaces, personnalisables et multilingues."
+    "title": "Le générateur de codes-barres gratuit est un outil en ligne qui permet aux utilisateurs de créer facilement différents formats de codes-barres et de QR codes. Il prend en charge plusieurs types d'encodage et permet aux utilisateurs de générer des codes-barres en temps réel et en masse, totalement gratuitement."
   },
   "Barcode": {
-    "title": "{type} Generator"
+    "title": "Générateur de codes-barres {type}",
+    "input": {
+      "title": "Saisir le code-barres"
+    },
+    "options": {
+      "name": "Options",
+      "code-format": "Format du code",
+      "show-text": "Afficher le texte",
+      "show-yes": "Oui",
+      "show-no": "Non",
+      "barcode-length": "Longueur du code-barres (mm)",
+      "barcode-height": "Hauteur du code-barres (mm)"
+    },
+    "output": {
+      "title": "Sortie"
+    }
+  },
+  "content": {
+    "faq": "# FAQ du générateur de codes-barres gratuit\n\n## 1. Qu'est-ce qu'un générateur de codes-barres gratuit ?\n\nUn générateur de codes-barres gratuit est un outil en ligne qui permet aux utilisateurs de créer facilement différents formats de codes-barres et de QR codes. Il prend en charge plusieurs types d'encodage et permet aux utilisateurs de générer des codes-barres en temps réel et en masse, totalement gratuitement.\n\n## 2. Comment utiliser ce générateur de codes-barres ?\n\nL'utilisation est simple :\n- Entrez le contenu à encoder dans la zone de saisie, chaque ligne correspondant à un code-barres.\n- Utilisez les onglets pour basculer entre différents types d'encodage (comme les codes-barres 1D, les QR codes, etc.).\n- Sélectionnez le format d'encodage et le style du code-barres dans les options.\n- Le système générera en temps réel le code-barres ou le QR code correspondant.\n\n## 3. Quels types de codes-barres cet outil prend-il en charge ?\n\nNotre outil prend en charge divers formats de codes-barres courants, incluant mais ne se limitant pas à :\n- Codes-barres 1D : comme EAN-13, UPC-A, Code 39, Code 128, etc.\n- Codes 2D : comme les QR codes, Data Matrix, Aztec Code, etc.\nVous pouvez vérifier les types spécifiquement pris en charge dans les onglets et les options de l'outil.\n\n## 4. Puis-je générer plusieurs codes-barres à la fois ?\n\nOui, cet outil prend en charge la génération en masse. Il vous suffit d'entrer un contenu de code-barres par ligne dans la zone de saisie, et le système générera un code-barres correspondant pour chaque ligne de contenu.\n\n## 5. Puis-je personnaliser le style des codes-barres générés ?\n\nOui. Dans la section des options, vous pouvez ajuster le format et le style du code-barres, comme la taille, la couleur, les marges, etc., pour répondre à vos besoins spécifiques.\n\n## 6. Comment puis-je télécharger ou sauvegarder les codes-barres générés ?\n\nLes codes-barres générés peuvent généralement être sauvegardés en faisant un clic droit et en sélectionnant \"Enregistrer l'image sous\". Pour les codes-barres générés en masse, nous proposons une option de téléchargement par lot qui vous permet de télécharger tous les codes-barres générés en une seule fois.\n\n## 7. Les codes-barres générés par cet outil sont-ils légalement valides ?\n\nLes codes-barres générés par notre outil sont techniquement corrects, mais leur validité légale dépend de votre utilisation prévue et des réglementations pertinentes. Si vous en avez besoin à des fins commerciales, nous vous recommandons de consulter les normes de l'industrie et les exigences légales pertinentes.\n\n## 8. Y a-t-il des frais pour utiliser cet outil ?\n\nNon. Comme son nom l'indique, c'est un générateur de codes-barres totalement gratuit. Vous pouvez l'utiliser sans restriction pour générer les codes-barres dont vous avez besoin, sans payer de frais.\n\n## 9. Quelle est la qualité des codes-barres générés ? Sont-ils adaptés à l'impression ?\n\nLes codes-barres générés par notre outil ont une résolution de haute qualité et sont parfaitement adaptés à l'impression. Cependant, nous recommandons d'effectuer de petits tests avant une utilisation formelle à grande échelle pour vous assurer qu'ils peuvent être normalement scannés et reconnus dans vos scénarios d'application spécifiques.\n\n## 10. Puis-je utiliser cet outil sur des appareils mobiles ?\n\nOui, notre générateur de codes-barres est basé sur le web et compatible avec divers appareils. Que vous utilisiez un ordinateur, une tablette ou un smartphone, vous pouvez accéder et utiliser cet outil commodément."
   }
 }

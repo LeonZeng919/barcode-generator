@@ -5,6 +5,7 @@ import BarcodeGenerator from '@/components/barcode-generator'
 import { notFound } from 'next/navigation'
 import { locales } from '@/i18n'
 import { barcodeTypes } from '@/config/barcode-types'
+import MarkdownContent from '@/components/MarkdownContent'
 
 export default function BarcodePage({
   params: { locale, barcodeType },
@@ -15,8 +16,7 @@ export default function BarcodePage({
 }) {
   unstable_setRequestLocale(locale)
 
-  const t = useTranslations('Barcode')
-  const siteConfig = getSiteConfig(locale)
+  const t = useTranslations('content')
 
   // Validate barcodeType
   if (
@@ -38,10 +38,13 @@ export default function BarcodePage({
           <BarcodeGenerator
             codeFormat={barcodeType}
             initialData={initialData}
+            locale={locale}
           />
         </div>
       </section>
-      <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10"></section>
+      <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+        <MarkdownContent content={t('faq')} />
+      </section>
     </>
   )
 }

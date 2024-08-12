@@ -12,6 +12,7 @@ import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
 import { NextIntlClientProvider } from 'next-intl'
 import Footer from '@/components/footer'
+import { notFound } from 'next/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -42,11 +43,17 @@ export type PageProps = Readonly<{
   params: { locale: Locale }
 }>
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: { locale },
 }: PageProps) {
   unstable_setRequestLocale(locale)
+  let messages
+  try {
+    messages = (await import(`../../../messages/${locale}.json`)).default
+  } catch (error) {
+    notFound()
+  }
   return (
     <html lang={locale} suppressHydrationWarning>
       <head />
@@ -58,7 +65,7 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <NextIntlClientProvider locale={locale}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader locale={locale} />
               <div className="flex-1">{children}</div>

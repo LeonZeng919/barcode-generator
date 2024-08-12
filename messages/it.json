@@ -1,0 +1,26 @@
+{
+  "Index": {
+    "title": "Il generatore di codici a barre gratuito è uno strumento online che consente agli utenti di creare facilmente diversi formati di codici a barre e codici QR. Supporta molteplici tipi di codifica e permette agli utenti di generare codici a barre in tempo reale e in batch, completamente gratis."
+  },
+  "Barcode": {
+    "title": "Generatore di codici a barre {type}",
+    "input": {
+      "title": "Inserisci codice a barre"
+    },
+    "options": {
+      "name": "Opzioni",
+      "code-format": "Formato del codice",
+      "show-text": "Mostra testo",
+      "show-yes": "Sì",
+      "show-no": "No",
+      "barcode-length": "Lunghezza del codice a barre (mm)",
+      "barcode-height": "Altezza del codice a barre (mm)"
+    },
+    "output": {
+      "title": "Output"
+    }
+  },
+  "content": {
+    "faq": "# FAQ del generatore di codici a barre gratuito\n\n## 1. Cos'è un generatore di codici a barre gratuito?\n\nUn generatore di codici a barre gratuito è uno strumento online che consente agli utenti di creare facilmente diversi formati di codici a barre e codici QR. Supporta molteplici tipi di codifica e permette agli utenti di generare codici a barre in tempo reale e in batch, completamente gratis.\n\n## 2. Come si usa questo generatore di codici a barre?\n\nL'uso è semplice:\n- Inserisci il contenuto da codificare nella casella di input, con ogni riga corrispondente a un codice a barre.\n- Usa le schede per passare tra diversi tipi di codifica (come codici a barre 1D, codici QR, ecc.).\n- Seleziona il formato di codifica e lo stile del codice a barre nelle opzioni.\n- Il sistema genererà in tempo reale il codice a barre o il codice QR corrispondente.\n\n## 3. Quali tipi di codici a barre supporta questo strumento?\n\nIl nostro strumento supporta vari formati comuni di codici a barre, inclusi ma non limitati a:\n- Codici a barre 1D: come EAN-13, UPC-A, Codice 39, Codice 128, ecc.\n- Codici 2D: come codici QR, Data Matrix, Codice Aztec, ecc.\nPuoi verificare i tipi specificamente supportati nelle schede e nelle opzioni dello strumento.\n\n## 4. Posso generare più codici a barre contemporaneamente?\n\nSì, questo strumento supporta la generazione in batch. Basta inserire un contenuto di codice a barre per riga nell'area di input, e il sistema genererà un codice a barre corrispondente per ogni riga di contenuto.\n\n## 5. Posso personalizzare lo stile dei codici a barre generati?\n\nSì. Nella sezione delle opzioni, puoi regolare il formato e lo stile del codice a barre, come dimensioni, colore, margini, ecc., per soddisfare le tue esigenze specifiche.\n\n## 6. Come posso scaricare o salvare i codici a barre generati?\n\nI codici a barre generati possono generalmente essere salvati facendo clic con il tasto destro e selezionando \"Salva immagine con nome\". Per i codici a barre generati in batch, offriamo un'opzione di download in batch che ti consente di scaricare tutti i codici a barre generati in una volta.\n\n## 7. I codici a barre generati da questo strumento sono legalmente validi?\n\nI codici a barre generati dal nostro strumento sono tecnicamente corretti, ma la loro validità legale dipende dall'uso previsto e dalle normative pertinenti. Se ne hai bisogno per scopi commerciali, ti consigliamo di consultare gli standard del settore e i requisiti legali pertinenti.\n\n## 8. C'è un costo per l'utilizzo di questo strumento?\n\nNo. Come suggerisce il nome, è un generatore di codici a barre completamente gratuito. Puoi usarlo senza restrizioni per generare i codici a barre di cui hai bisogno, senza pagare alcuna tariffa.\n\n## 9. Qual è la qualità dei codici a barre generati? Sono adatti per la stampa?\n\nI codici a barre generati dal nostro strumento hanno una risoluzione di alta qualità e sono perfettamente adatti per la stampa. Tuttavia, consigliamo di effettuare piccoli test prima di un uso formale su larga scala per assicurarti che possano essere scansionati e riconosciuti normalmente nei tuoi scenari di applicazione specifici.\n\n## 10. Posso usare questo strumento su dispositivi mobili?\n\nSì, il nostro generatore di codici a barre è basato sul web ed è compatibile con vari dispositivi. Che tu stia usando un computer, un tablet o uno smartphone, puoi accedere e utilizzare questo strumento comodamente."
+  }
+}

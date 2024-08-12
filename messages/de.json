@@ -1,0 +1,26 @@
+{
+  "Index": {
+    "title": "Der kostenlose Barcode-Generator ist ein Online-Tool, mit dem Benutzer einfach verschiedene Formate von Barcodes und QR-Codes erstellen können. Es unterstützt mehrere Codierungstypen und ermöglicht Benutzern, Barcodes in Echtzeit und in großen Mengen völlig kostenlos zu generieren."
+  },
+  "Barcode": {
+    "title": "{type} Barcode-Generator",
+    "input": {
+      "title": "Barcode eingeben"
+    },
+    "options": {
+      "name": "Optionen",
+      "code-format": "Code-Format",
+      "show-text": "Text anzeigen",
+      "show-yes": "Ja",
+      "show-no": "Nein",
+      "barcode-length": "Barcode-Länge (mm)",
+      "barcode-height": "Barcode-Höhe (mm)"
+    },
+    "output": {
+      "title": "Ausgabe"
+    }
+  },
+  "content": {
+    "faq": "# Kostenloser Barcode-Generator FAQ\n\n## 1. Was ist ein kostenloser Barcode-Generator?\n\nEin kostenloser Barcode-Generator ist ein Online-Tool, mit dem Benutzer einfach verschiedene Formate von Barcodes und QR-Codes erstellen können. Es unterstützt mehrere Codierungstypen und ermöglicht Benutzern, Barcodes in Echtzeit und in großen Mengen völlig kostenlos zu generieren.\n\n## 2. Wie benutze ich diesen Barcode-Generator?\n\nDie Verwendung ist einfach:\n- Geben Sie den zu codierenden Inhalt in das Eingabefeld ein, wobei jede Zeile einem Barcode entspricht.\n- Verwenden Sie die Registerkarten, um zwischen verschiedenen Codierungstypen (wie 1D-Barcodes, QR-Codes usw.) zu wechseln.\n- Wählen Sie in den Optionen das Codierungsformat und den Barcode-Stil aus.\n- Das System generiert in Echtzeit den entsprechenden Barcode oder QR-Code.\n\n## 3. Welche Arten von Barcodes unterstützt dieses Tool?\n\nUnser Tool unterstützt verschiedene gängige Barcode-Formate, einschließlich, aber nicht beschränkt auf:\n- 1D-Barcodes: wie EAN-13, UPC-A, Code 39, Code 128 usw.\n- 2D-Codes: wie QR-Codes, Data Matrix, Aztec Code usw.\nDie spezifisch unterstützten Typen können Sie in den Registerkarten und Optionen des Tools überprüfen.\n\n## 4. Kann ich mehrere Barcodes auf einmal generieren?\n\nJa, dieses Tool unterstützt die Massengenerierung. Sie müssen nur einen Barcode-Inhalt pro Zeile in das Eingabefeld eingeben, und das System generiert für jede Zeile des Inhalts einen entsprechenden Barcode.\n\n## 5. Kann ich den Stil der generierten Barcodes anpassen?\n\nJa. Im Optionsbereich können Sie das Format und den Stil des Barcodes anpassen, wie Größe, Farbe, Ränder usw., um Ihren spezifischen Anforderungen gerecht zu werden.\n\n## 6. Wie kann ich die generierten Barcodes herunterladen oder speichern?\n\nGenerierte Barcodes können in der Regel durch Rechtsklick und Auswahl von \"Bild speichern unter\" gespeichert werden. Für massenweise generierte Barcodes bieten wir eine Option zum Paket-Download an, mit der Sie alle generierten Barcodes auf einmal herunterladen können.\n\n## 7. Sind die von diesem Tool generierten Barcodes rechtlich gültig?\n\nDie von unserem Tool generierten Barcodes sind technisch korrekt, aber ob sie rechtlich gültig sind, hängt von Ihrem beabsichtigten Verwendungszweck und den relevanten Vorschriften ab. Wenn Sie sie für kommerzielle Zwecke benötigen, empfehlen wir, die relevanten Branchenstandards und gesetzlichen Anforderungen zu konsultieren.\n\n## 8. Gibt es eine Gebühr für die Nutzung dieses Tools?\n\nNein. Wie der Name schon sagt, ist dies ein völlig kostenloser Barcode-Generator. Sie können ihn ohne Einschränkungen nutzen, um die benötigten Barcodes zu generieren, ohne Gebühren zu zahlen.\n\n## 9. Wie ist die Qualität der generierten Barcodes? Sind sie für den Druck geeignet?\n\nDie von unserem Tool generierten Barcodes haben eine hochwertige Auflösung und sind vollständig für den Druck geeignet. Wir empfehlen jedoch, vor dem formellen großflächigen Einsatz kleine Tests durchzuführen, um sicherzustellen, dass sie in Ihren spezifischen Anwendungsszenarien normal gescannt und erkannt werden können.\n\n## 10. Kann ich dieses Tool auf mobilen Geräten verwenden?\n\nJa, unser Barcode-Generator ist webbasiert und mit verschiedenen Geräten kompatibel. Ob Sie einen Computer, ein Tablet oder ein Smartphone verwenden, Sie können bequem auf dieses Tool zugreifen und es nutzen."
+  }
+}

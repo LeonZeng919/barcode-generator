@@ -1,0 +1,26 @@
+{
+  "Index": {
+    "title": "Den kostnadsfria streckkodsgeneratorn är ett onlineverktyg som gör det enkelt för användare att skapa olika format av streckkoder och QR-koder. Den stöder flera kodningstyper och låter användare generera streckkoder i realtid och i bulk, helt gratis."
+  },
+  "Barcode": {
+    "title": "{type} Streckkodsgenerator",
+    "input": {
+      "title": "Ange streckkod"
+    },
+    "options": {
+      "name": "Alternativ",
+      "code-format": "Kodformat",
+      "show-text": "Visa text",
+      "show-yes": "Ja",
+      "show-no": "Nej",
+      "barcode-length": "Streckkodens längd (mm)",
+      "barcode-height": "Streckkodens höjd (mm)"
+    },
+    "output": {
+      "title": "Utdata"
+    }
+  },
+  "content": {
+    "faq": "# Vanliga frågor om den kostnadsfria streckkodsgeneratorn\n\n## 1. Vad är en kostnadsfri streckkodsgenerator?\n\nEn kostnadsfri streckkodsgenerator är ett onlineverktyg som gör det enkelt för användare att skapa olika format av streckkoder och QR-koder. Den stöder flera kodningstyper och låter användare generera streckkoder i realtid och i bulk, helt gratis.\n\n## 2. Hur använder man denna streckkodsgenerator?\n\nAnvändningen är enkel:\n- Ange innehållet som ska kodas i inmatningsrutan, där varje rad motsvarar en streckkod.\n- Använd flikarna för att växla mellan olika kodningstyper (som 1D-streckkoder, QR-koder, etc.).\n- Välj kodningsformat och streckkodsstil i alternativen.\n- Systemet genererar i realtid motsvarande streckkod eller QR-kod.\n\n## 3. Vilka typer av streckkoder stöder detta verktyg?\n\nVårt verktyg stöder olika vanliga streckkodformat, inklusive men inte begränsat till:\n- 1D-streckkoder: som EAN-13, UPC-A, Kod 39, Kod 128, etc.\n- 2D-koder: som QR-koder, Data Matrix, Aztec-kod, etc.\nDu kan kontrollera de specifikt stödda typerna i verktygets flikar och alternativ.\n\n## 4. Kan jag generera flera streckkoder samtidigt?\n\nJa, detta verktyg stöder batchgenerering. Ange bara ett streckkodinnehåll per rad i inmatningsområdet, och systemet kommer att generera en motsvarande streckkod för varje innehållsrad.\n\n## 5. Kan jag anpassa stilen på de genererade streckkoderna?\n\nJa. I alternativavsnittet kan du justera streckkodformatet och stilen, såsom storlek, färg, marginaler, etc., för att möta dina specifika behov.\n\n## 6. Hur kan jag ladda ner eller spara de genererade streckkoderna?\n\nGenererade streckkoder kan vanligtvis sparas genom att högerklicka och välja 'Spara bild som'. För batchgenererade streckkoder erbjuder vi ett alternativ för batchnedladdning som låter dig ladda ner alla genererade streckkoder på en gång.\n\n## 7. Är streckkoderna som genereras av detta verktyg lagligt giltiga?\n\nStreckkoderna som genereras av vårt verktyg är tekniskt korrekta, men deras juridiska giltighet beror på den avsedda användningen och relevanta föreskrifter. Om du behöver dem för kommersiella ändamål rekommenderar vi att du konsulterar relevanta branschstandarder och juridiska krav.\n\n## 8. Finns det någon kostnad för att använda detta verktyg?\n\nNej. Som namnet antyder är det en helt kostnadsfri streckkodsgenerator. Du kan använda den utan begränsningar för att generera de streckkoder du behöver, utan att betala några avgifter.\n\n## 9. Vilken kvalitet har de genererade streckkoderna? Är de lämpliga för utskrift?\n\nStreckkoderna som genereras av vårt verktyg har hög upplösning och är perfekt lämpade för utskrift. Vi rekommenderar dock att du gör små tester innan formell användning i stor skala för att säkerställa att de kan skannas och kännas igen normalt i dina specifika användningsscenarier.\n\n## 10. Kan jag använda detta verktyg på mobila enheter?\n\nJa, vår streckkodsgenerator är webbaserad och kompatibel med olika enheter. Oavsett om du använder en dator, surfplatta eller smartphone kan du enkelt komma åt och använda detta verktyg."
+  }
+}

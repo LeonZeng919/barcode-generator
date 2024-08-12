@@ -1,4 +1,5 @@
 import { barcodeTypes } from '@/config/barcode-types'
+import { Locale } from '@/i18n'
 import React, { createContext, useState, useContext, useMemo } from 'react'
 
 interface BarcodeContextType {
