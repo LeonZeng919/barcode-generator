@@ -23,7 +23,7 @@ export default function BarcodePage({
     !barcodeTypes
       .flatMap((barcodeType) => barcodeType.types)
       .map((barcode) => barcode.value.toUpperCase())
-      .includes(barcodeType)
+      .includes(barcodeType.toUpperCase())
   ) {
     notFound()
   }

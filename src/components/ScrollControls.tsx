@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { Slider } from '@/components/ui/slider'
 import {
@@ -13,9 +13,11 @@ import { useTranslations } from 'next-intl'
 
 const AutoScrollComponent = () => {
   const [isScrolling, setIsScrolling] = useState(false)
-  const [scrollSpeed, setScrollSpeed] = useState(1)
+  const [scrollSpeed, setScrollSpeed] = useState(2)
   const [showButton, setShowButton] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
+  const lastScrollTime = useRef(0)
+  const animationFrameId = useRef<number | null>(null)
 
   const checkScrollable = useCallback(() => {
     const body = document.body
@@ -37,16 +39,31 @@ const AutoScrollComponent = () => {
   }, [checkScrollable])
 
   useEffect(() => {
-    let scrollInterval: NodeJS.Timeout
-    if (isScrolling) {
-      scrollInterval = setInterval(() => {
-        window.scrollBy(0, scrollSpeed)
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-          setIsScrolling(false)
-        }
-      }, 20)
+    const scrollStep = (timestamp: number) => {
+      if (!lastScrollTime.current) lastScrollTime.current = timestamp
+      const deltaTime = timestamp - lastScrollTime.current
+      const scrollAmount = (scrollSpeed * deltaTime) / 16 // 16ms is roughly one frame at 60fps
+
+      window.scrollBy(0, scrollAmount)
+      lastScrollTime.current = timestamp
+
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        setIsScrolling(false)
+      } else if (isScrolling) {
+        animationFrameId.current = requestAnimationFrame(scrollStep)
+      }
     }
-    return () => clearInterval(scrollInterval)
+
+    if (isScrolling) {
+      lastScrollTime.current = 0
+      animationFrameId.current = requestAnimationFrame(scrollStep)
+    }
+
+    return () => {
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current)
+      }
+    }
   }, [isScrolling, scrollSpeed])
 
   const toggleScrolling = () => setIsScrolling(!isScrolling)

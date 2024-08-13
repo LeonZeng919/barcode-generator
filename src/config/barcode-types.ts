@@ -2,55 +2,55 @@ export const barcodeTypes = [
     {
         name: 'CODE128',
         types: [
-            { name: 'CODE128', value: 'CODE128', initData: 'ABC-abc-1234' },
-            { name: 'CODE128 A', value: 'CODE128A', initData: 'ABC123' },
-            { name: 'CODE128 B', value: 'CODE128B', initData: 'Hello World!' },
-            { name: 'CODE128 C', value: 'CODE128C', initData: '123456' },
+            { name: 'CODE128', value: 'Code128', initData: 'ABC-abc-1234' },
+            { name: 'CODE128 A', value: 'Code128A', initData: 'ABC123' },
+            { name: 'CODE128 B', value: 'Code128B', initData: 'Hello World!' },
+            { name: 'CODE128 C', value: 'Code128C', initData: '123456' },
         ],
     },
     {
         name: 'EAN',
         types: [
-            { name: 'EAN-13', value: 'EAN13', initData: '5901234123457' },
-            { name: 'EAN-8', value: 'EAN8', initData: '96385074' },
-            { name: 'EAN-5', value: 'EAN5', initData: '54495' },
-            { name: 'EAN-2', value: 'EAN2', initData: '53' },
-            { name: 'UPC (A)', value: 'UPC', initData: '123456789012' },
-            { name: 'UPC (E)', value: 'UPC-E', initData: '01234565' },
+            { name: 'EAN-13', value: 'Ean13', initData: '5901234123457' },
+            { name: 'EAN-8', value: 'Ean8', initData: '96385074' },
+            { name: 'EAN-5', value: 'Ean5', initData: '54495' },
+            { name: 'EAN-2', value: 'Ean2', initData: '53' },
+            { name: 'UPC (A)', value: 'Upc', initData: '123456789012' },
+            { name: 'UPC (E)', value: 'Upc-E', initData: '01234565' },
         ],
     },
     {
         name: 'CODE39',
         types: [
-            { name: 'CODE39', value: 'CODE39', initData: 'CODE 39' },
+            { name: 'CODE39', value: 'Code39', initData: 'CODE 39' },
         ],
     },
     {
         name: 'ITF',
         types: [
-            { name: 'ITF', value: 'ITF', initData: '1234567890' },
-            { name: 'ITF-14', value: 'ITF14', initData: '15400141288763' },
+            { name: 'ITF', value: 'Itf', initData: '1234567890' },
+            { name: 'ITF-14', value: 'Itf14', initData: '15400141288763' },
         ],
     },
     {
         name: 'MSI',
         types: [
-            { name: 'MSI10', value: 'MSI10', initData: '1234567' },
-            { name: 'MSI11', value: 'MSI11', initData: '1234567' },
-            { name: 'MSI1010', value: 'MSI1010', initData: '1234567' },
-            { name: 'MSI1110', value: 'MSI1110', initData: '1234567' },
+            { name: 'MSI10', value: 'Msi10', initData: '1234567' },
+            { name: 'MSI11', value: 'Msi11', initData: '1234567' },
+            { name: 'MSI1010', value: 'Msi1010', initData: '1234567' },
+            { name: 'MSI1110', value: 'Msi1110', initData: '1234567' },
         ],
     },
     {
         name: 'PHARMACODE',
         types: [
-            { name: 'Pharmacode', value: 'PHARMACODE', initData: '1234' },
+            { name: 'Pharmacode', value: 'Pharmacode', initData: '1234' },
         ],
     },
     {
         name: 'CODABAR',
         types: [
-            { name: 'Codabar', value: 'CODABAR', initData: 'A1234B' },
+            { name: 'Codabar', value: 'Codabar', initData: 'A1234B' },
         ],
     },
 ];

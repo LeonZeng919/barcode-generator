@@ -28,9 +28,11 @@ export const BarcodeProvider: React.FC<{
   }
 }> = ({ children, value: { initCodeFormat, initialData } }) => {
   const initData =
+    initialData ||
     barcodeTypes
       .flatMap((barcode) => barcode.types)
-      .findLast((barcode) => barcode.value === initCodeFormat)?.initData || ''
+      .findLast((barcode) => barcode.value === initCodeFormat)?.initData ||
+    ''
 
   const [input, setInput] = useState<string>(initData)
   const [output, setOutput] = useState<string>('')

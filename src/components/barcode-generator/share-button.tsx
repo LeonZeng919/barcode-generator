@@ -10,6 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import { useBarcodeContext } from './BarcodeContext'
 
 interface ShareButtonProps {
   variant?:
@@ -20,18 +21,20 @@ interface ShareButtonProps {
     | 'ghost'
     | 'link'
   className?: string
+  size?: 'default' | 'sm' | 'lg' | 'icon' | null | undefined
 }
 
 export const ShareButton: React.FC<ShareButtonProps> = ({
-  variant = 'outline',
-  className = 'inline-flex items-center justify-center',
+  variant,
+  className,
+  size,
 }) => {
+  const { input } = useBarcodeContext()
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   const generateShareLink = () => {
-    const currentData = searchParams.get('data') || ''
+    const currentData = input
     const baseUrl = window.location.origin + pathname
     const shareUrl = `${baseUrl}?data=${encodeURIComponent(currentData)}`
     return shareUrl
@@ -46,8 +49,8 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant={variant} className={className}>
-          <Share2 className="mr-2 h-4 w-4" /> Share
+        <Button variant={variant} className={className} size={size}>
+          <Share2 className="mr-2 h-5 w-5" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">

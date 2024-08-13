@@ -16,6 +16,8 @@ import {
 import { barcodeTypes, findBarcodeCategory } from '@/config/barcode-types'
 import { usePathname, useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
+import { ShareButton } from './share-button'
+import { DownloadBarcodes } from './DownloadBarcodes'
 
 export const InputComponent: React.FC = () => {
   const t = useTranslations('Barcode')
@@ -62,13 +64,8 @@ export const OutputComponent: React.FC = () => {
             {t('output.title')}
           </span>
           <span className="label-text-alt flex items-center justify-between gap-4">
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={() => navigator.clipboard.writeText(output)}
-            >
-              <Copy className="h-5 w-5" />
-            </Button>
+            <DownloadBarcodes />
+            <ShareButton size="icon" variant="ghost" />
           </span>
         </div>
       </label>
