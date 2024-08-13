@@ -32,7 +32,7 @@ export default function BarcodePage({
     typeof searchParams.data === 'string' ? searchParams.data : ''
 
   return (
-    <>
+    <div className="max-w-3xl">
       <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
         <div className="flex items-center gap-4">
           <BarcodeGenerator
@@ -45,7 +45,7 @@ export default function BarcodePage({
       <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
         <MarkdownContent content={t('faq')} />
       </section>
-    </>
+    </div>
   )
 }
 

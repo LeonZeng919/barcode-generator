@@ -6,7 +6,6 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
 import { Settings, Copy } from 'lucide-react'
 import { useBarcodeContext } from './BarcodeContext'
-import AutoScroll from './auto-scroll'
 import {
   Select,
   SelectContent,
@@ -51,21 +50,10 @@ export const InputComponent: React.FC = () => {
 }
 
 export const OutputComponent: React.FC = () => {
-  const { output, hasOverflow, setHasOverflow } = useBarcodeContext()
+  const { output } = useBarcodeContext()
   const outputRef = React.useRef<HTMLDivElement>(null)
   const t = useTranslations('Barcode')
 
-  useEffect(() => {
-    const checkOverflow = () => {
-      if (outputRef.current) {
-        setHasOverflow(
-          outputRef.current.scrollHeight > outputRef.current.clientHeight,
-        )
-      }
-    }
-
-    checkOverflow()
-  }, [output, setHasOverflow])
   return (
     <div className="form-control">
       <label htmlFor="output" className="label">
@@ -81,14 +69,13 @@ export const OutputComponent: React.FC = () => {
             >
               <Copy className="h-5 w-5" />
             </Button>
-            {hasOverflow && <AutoScroll targetRef={outputRef} />}
           </span>
         </div>
       </label>
       <div
         ref={outputRef}
         id="output"
-        className="h-48 overflow-auto rounded-md border bg-transparent p-3 text-sm shadow-sm"
+        className="overflow-auto rounded-md border bg-transparent p-3 text-sm shadow-sm"
         dangerouslySetInnerHTML={{ __html: output }}
       />
     </div>

@@ -9,8 +9,20 @@ type Props = {
 
 export default function Error({ error, reset }: Props) {
   useEffect(() => {
-    console.error(error)
+    console.error('Error details:', error)
+    console.error('Error name:', error.name)
+    console.error('Error message:', error.message)
+    console.error('Error stack:', error.stack)
   }, [error])
 
-  return <div>not found</div>
+  return (
+    <html>
+      <body>
+        <div>
+          <h1>An error occurred</h1>
+          <button onClick={reset}>Try again</button>
+        </div>
+      </body>
+    </html>
+  )
 }

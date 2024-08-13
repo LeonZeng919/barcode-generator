@@ -14,7 +14,7 @@ const BarcodeGeneratorContent: React.FC = () => {
   useBarcodeGenerator()
 
   return (
-    <main className="mx-auto w-full max-w-5xl p-5">
+    <div className="mx-auto w-full max-w-5xl p-5">
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         <div className="col-span-1 md:col-span-2">
           <BarcodeCarousel />
@@ -29,7 +29,7 @@ const BarcodeGeneratorContent: React.FC = () => {
           <OutputComponent />
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 

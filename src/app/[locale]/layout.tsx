@@ -13,6 +13,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { NextIntlClientProvider } from 'next-intl'
 import Footer from '@/components/footer'
 import { notFound } from 'next/navigation'
+import ScrollControls from '@/components/ScrollControls'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -72,8 +73,9 @@ export default async function RootLayout({
           <NextIntlClientProvider locale={locale} messages={messages}>
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader locale={locale} />
-              <div className="flex-1">{children}</div>
+              <main className="flex flex-1 justify-center">{children}</main>
               <Footer />
+              <ScrollControls />
             </div>
           </NextIntlClientProvider>
           <TailwindIndicator />

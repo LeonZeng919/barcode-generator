@@ -1,5 +1,4 @@
 import { barcodeTypes } from '@/config/barcode-types'
-import { Locale } from '@/i18n'
 import React, { createContext, useState, useContext, useMemo } from 'react'
 
 interface BarcodeContextType {
@@ -15,8 +14,6 @@ interface BarcodeContextType {
   setShowText: (show: boolean) => void
   showOptions: boolean
   setShowOptions: (show: boolean) => void
-  hasOverflow: boolean
-  setHasOverflow: (overflow: boolean) => void
   codeFormat: string
   setCodeFormat: (format: string) => void
 }
@@ -41,7 +38,6 @@ export const BarcodeProvider: React.FC<{
   const [barcodeHeight, setBarcodeHeight] = useState<number>(60)
   const [showText, setShowText] = useState<boolean>(true)
   const [showOptions, setShowOptions] = useState<boolean>(false)
-  const [hasOverflow, setHasOverflow] = useState<boolean>(false)
   const [codeFormat, setCodeFormat] = useState(initCodeFormat)
 
   const value = useMemo(
@@ -58,8 +54,6 @@ export const BarcodeProvider: React.FC<{
       setShowText,
       showOptions,
       setShowOptions,
-      hasOverflow,
-      setHasOverflow,
       codeFormat,
       setCodeFormat,
     }),
@@ -70,7 +64,6 @@ export const BarcodeProvider: React.FC<{
       barcodeHeight,
       showText,
       showOptions,
-      hasOverflow,
       codeFormat,
     ],
   )

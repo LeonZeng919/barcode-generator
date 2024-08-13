@@ -34,7 +34,7 @@ export function BarcodeCarousel() {
         {barcodeTypes.map((category, index) => (
           <CarouselItem
             key={category.name}
-            className="basis-1/2 pl-4 sm:basis-1/3 md:basis-1/4 lg:basis-1/6 xl:basis-1/6"
+            className="basis-1/2 pl-4 sm:basis-1/3 md:basis-1/4 "
           >
             <Link
               href={`/${locale}/${category.types[0].value}`}

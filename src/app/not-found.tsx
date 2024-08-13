@@ -1,5 +1,3 @@
-'use client'
-
 import { buttonVariants } from '@/components/ui/button'
 
 // Render the default Next.js 404 page when a route
