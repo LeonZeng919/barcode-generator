@@ -16,7 +16,7 @@ export const barcodeTypes = [
             { name: 'EAN-5', value: 'Ean5', initData: '54495' },
             { name: 'EAN-2', value: 'Ean2', initData: '53' },
             { name: 'UPC (A)', value: 'Upc', initData: '123456789012' },
-            { name: 'UPC (E)', value: 'Upc-E', initData: '01234565' },
+            { name: 'UPC (E)', value: 'UpcE', initData: '01234565' },
         ],
     },
     {

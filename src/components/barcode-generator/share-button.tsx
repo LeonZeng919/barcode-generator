@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Share2 } from 'lucide-react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import {
   Dialog,
   DialogContent,
@@ -35,7 +35,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
 
   const generateShareLink = () => {
     const currentData = input
-    const baseUrl = window.location.origin + pathname
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL + pathname
     const shareUrl = `${baseUrl}?data=${encodeURIComponent(currentData)}`
     return shareUrl
   }
