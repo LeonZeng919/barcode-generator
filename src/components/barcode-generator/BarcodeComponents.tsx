@@ -126,7 +126,7 @@ export const OptionsComponent: React.FC = () => {
                   .flatMap((type) => type.types)
                   .map((type) => (
                     <SelectItem key={type.value} value={type.value}>
-                      {type.value}
+                      {type.name}
                     </SelectItem>
                   ))}
               </SelectContent>
