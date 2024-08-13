@@ -134,9 +134,9 @@ export const OptionsComponent: React.FC = () => {
           </div>
           <div className="md:col-span-1">
             {/* <div className="flex items-center space-x-4"> */}
-            <Label className="whitespace-nowrap">
+            <span className="whitespace-nowrap text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
               {t('options.show-text')} :
-            </Label>
+            </span>
             <RadioGroup
               defaultValue={showText ? 'yes' : 'no'}
               onValueChange={(value) => setShowText(value === 'yes')}

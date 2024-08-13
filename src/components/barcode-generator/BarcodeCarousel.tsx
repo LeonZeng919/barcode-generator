@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { barcodeTypes } from '@/config/barcode-types'
@@ -10,6 +10,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -18,27 +19,42 @@ export function BarcodeCarousel() {
   const locale = pathname.split('/')[1]
   const currentCodeFormat = pathname.split('/')[2]
 
-  const [selectedIndex, setSelectedIndex] = useState(() => {
+  const [api, setApi] = useState<CarouselApi>()
+
+  const { initialIndex, flattenedTypes } = useMemo(() => {
     const flattenedTypes = barcodeTypes.flatMap((category, index) =>
       category.types.map((type) => ({ ...type, categoryIndex: index })),
     )
     const typeIndex = flattenedTypes.findIndex(
       (type) => type.value?.toUpperCase() === currentCodeFormat?.toUpperCase(),
     )
-    return typeIndex !== -1 ? flattenedTypes[typeIndex].categoryIndex : 0
-  })
+    const initialIndex =
+      typeIndex !== -1 ? flattenedTypes[typeIndex].categoryIndex : 0
+    return { initialIndex, flattenedTypes }
+  }, [currentCodeFormat])
+
+  const [selectedIndex, setSelectedIndex] = useState(initialIndex)
+
+  useEffect(() => {
+    if (!api) return
+    api.scrollTo(initialIndex, true)
+  }, [api, initialIndex])
 
   return (
-    <Carousel className="w-full">
+    <Carousel setApi={setApi} className="w-full" opts={{ align: 'center' }}>
       <CarouselContent className="-ml-4">
         {barcodeTypes.map((category, index) => (
           <CarouselItem
             key={category.name}
-            className="basis-1/2 pl-4 sm:basis-1/3 md:basis-1/4 "
+            className="basis-1/2 pl-4 sm:basis-1/3 "
           >
             <Link
               href={`/${locale}/${category.types[0].value}`}
-              onClick={() => setSelectedIndex(index)}
+              onClick={() => {
+                setSelectedIndex(index)
+                api?.scrollTo(index, true)
+              }}
+              id={`barcode-category-${index}`}
             >
               <Card
                 className={`h-full transition-colors duration-300 ${
@@ -55,9 +71,6 @@ export function BarcodeCarousel() {
                   >
                     {category.name}
                   </h2>
-                  {/* <p className="mt-2 text-sm text-gray-600">
-                    {category.types[0].name}
-                  </p> */}
                 </CardContent>
               </Card>
             </Link>

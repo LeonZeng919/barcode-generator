@@ -10,13 +10,10 @@ export const DownloadBarcodes: React.FC = () => {
   const { input, barcodeLength, barcodeHeight, showText, codeFormat } =
     useBarcodeContext()
 
-  const downloadBarcodes = useCallback(async () => {
-    const values = input.split('\n').filter((value) => value.trim() !== '')
-    const zip = new JSZip()
-
-    const generateBarcode = (value: string): Promise<Blob> => {
+  const generateBarcode = useCallback(
+    (value: string): Promise<Blob> => {
       return new Promise((resolve) => {
-        const scaleFactor = 2 // 增加缩放因子以提高清晰度
+        const scaleFactor = 1 // 增加缩放因子以提高清晰度
         const canvas = document.createElement('canvas')
         canvas.width = barcodeLength * scaleFactor
         canvas.height = barcodeHeight * scaleFactor
@@ -43,18 +40,32 @@ export const DownloadBarcodes: React.FC = () => {
           1,
         ) // 使用最高质量设置
       })
-    }
+    },
+    [barcodeLength, barcodeHeight, showText, codeFormat],
+  )
 
-    for (let i = 0; i < values.length; i++) {
-      const value = values[i]
-      const barcodeBlob = await generateBarcode(value)
-      zip.file(`barcode_${i + 1}.png`, barcodeBlob)
-    }
+  const downloadBarcodes = useCallback(async () => {
+    const values = input.split('\n').filter((value) => value.trim() !== '')
 
-    zip.generateAsync({ type: 'blob' }).then((content) => {
-      FileSaver.saveAs(content, 'barcodes.zip')
-    })
-  }, [input, barcodeHeight, showText, barcodeLength, codeFormat])
+    if (values.length === 1) {
+      // 如果只有一个值，直接下载图片
+      const barcodeBlob = await generateBarcode(values[0])
+      FileSaver.saveAs(barcodeBlob, 'barcode.png')
+    } else {
+      // 如果有多个值，创建ZIP文件
+      const zip = new JSZip()
+
+      for (let i = 0; i < values.length; i++) {
+        const value = values[i]
+        const barcodeBlob = await generateBarcode(value)
+        zip.file(`barcode_${i + 1}.png`, barcodeBlob)
+      }
+
+      zip.generateAsync({ type: 'blob' }).then((content) => {
+        FileSaver.saveAs(content, 'barcodes.zip')
+      })
+    }
+  }, [input, generateBarcode])
 
   return (
     <Button
