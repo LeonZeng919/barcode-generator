@@ -5,7 +5,7 @@
   "Barcode": {
     "title": "{type} 条码生成器",
     "input": {
-      "title": "输入条码"
+      "title": "条形码值（每行一个）"
     },
     "options": {
       "name": "选项",

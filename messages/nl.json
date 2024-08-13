@@ -5,7 +5,7 @@
   "Barcode": {
     "title": "{type} Barcodegenerator",
     "input": {
-      "title": "Barcode invoeren"
+      "title": "Barcode-waarden (één per regel)"
     },
     "options": {
       "name": "Opties",

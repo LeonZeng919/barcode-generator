@@ -5,7 +5,7 @@
   "Barcode": {
     "title": "{type} Streckkodsgenerator",
     "input": {
-      "title": "Ange streckkod"
+      "title": "Streckkodsvärden (en per rad)"
     },
     "options": {
       "name": "Alternativ",

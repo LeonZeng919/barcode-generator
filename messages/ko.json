@@ -5,7 +5,7 @@
   "Barcode": {
     "title": "{type} 바코드 생성기",
     "input": {
-      "title": "바코드 입력"
+      "title": "바코드 값 (한 줄에 하나씩)"
     },
     "options": {
       "name": "옵션",

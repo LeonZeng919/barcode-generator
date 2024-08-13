@@ -5,7 +5,7 @@
   "Barcode": {
     "title": "{type} Barcode-Generator",
     "input": {
-      "title": "Barcode eingeben"
+      "title": "Barcode-Werte (einer pro Zeile)"
     },
     "options": {
       "name": "Optionen",

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Share2 } from 'lucide-react'
+import { Copy, Share2 } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -29,7 +30,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
   className,
   size,
 }) => {
-  const { input } = useBarcodeContext()
+  const { input, codeFormat } = useBarcodeContext()
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
@@ -40,9 +41,14 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
     return shareUrl
   }
 
-  const handleCopy = () => {
-    const shareLink = generateShareLink()
-    navigator.clipboard.writeText(shareLink)
+  const generateBarcodeLink = () => {
+    const currentData = input
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+    return `${baseUrl}/api/barcode/${codeFormat}/${encodeURIComponent(currentData)}`
+  }
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text)
     setOpen(false)
   }
 
@@ -50,16 +56,38 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant={variant} className={className} size={size}>
-          <Share2 className="mr-2 h-5 w-5" />
+          <Copy className="h-5 w-5" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Share link</DialogTitle>
+          <DialogTitle>Copy Barcode Link</DialogTitle>
         </DialogHeader>
-        <div className="flex items-center space-x-2">
-          <Input className="flex-1" value={generateShareLink()} readOnly />
-          <Button onClick={handleCopy}>Copy</Button>
+        <div className="flex flex-col space-y-4">
+          <div>
+            <p className="mb-2 text-sm font-medium">
+              Link to This Barcode Image
+            </p>
+            <div className="flex items-center space-x-2">
+              <Input
+                className="flex-1"
+                value={generateBarcodeLink()}
+                readOnly
+              />
+              <Button onClick={() => handleCopy(generateBarcodeLink())}>
+                Copy
+              </Button>
+            </div>
+          </div>
+          <div>
+            <p className="mb-2 text-sm font-medium">Link to This Page</p>
+            <div className="flex items-center space-x-2">
+              <Input className="flex-1" value={generateShareLink()} readOnly />
+              <Button onClick={() => handleCopy(generateShareLink())}>
+                Copy
+              </Button>
+            </div>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

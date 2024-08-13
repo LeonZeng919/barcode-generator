@@ -5,7 +5,7 @@
   "Barcode": {
     "title": "{type} バーコードジェネレーター",
     "input": {
-      "title": "バーコード入力"
+      "title": "バーコード値（1行に1つ）"
     },
     "options": {
       "name": "オプション",

@@ -5,7 +5,7 @@
   "Barcode": {
     "title": "{type} Barcode Generator",
     "input": {
-      "title": "Input Barcode"
+      "title": "Barcode Values (one per line)"
     },
     "options": {
       "name": "Options",

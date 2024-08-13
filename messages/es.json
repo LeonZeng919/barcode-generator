@@ -5,7 +5,7 @@
   "Barcode": {
     "title": "Generador de códigos de barras {type}",
     "input": {
-      "title": "Ingresar código de barras"
+      "title": "Valores de código de barras (uno por línea)"
     },
     "options": {
       "name": "Opciones",

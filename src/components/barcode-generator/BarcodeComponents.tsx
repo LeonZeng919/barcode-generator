@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
-import { Settings, Copy } from 'lucide-react'
+import { Copy, Sliders } from 'lucide-react'
 import { useBarcodeContext } from './BarcodeContext'
 import {
   Select,
@@ -44,7 +44,7 @@ export const InputComponent: React.FC = () => {
         id="input"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="h-40"
+        className="h-28"
         placeholder="Enter values here, one per line"
       />
     </div>
@@ -107,12 +107,12 @@ export const OptionsComponent: React.FC = () => {
         </span>
         <span className="label-text-alt flex items-center gap-4">
           <Button size="icon" variant="ghost">
-            <Settings className="h-5 w-5" />
+            <Sliders className="h-5 w-5" />
           </Button>
         </span>
       </div>
 
-      <div className="xs:text-sm h-40 overflow-auto rounded-md border bg-transparent p-3 text-xs shadow-sm">
+      <div className="xs:text-sm h-36 overflow-auto rounded-md border bg-transparent p-3 text-xs shadow-sm">
         <div className="grid grid-cols-2 gap-2 ">
           <div className="md:col-span-1">
             <Label htmlFor="barcodeType">{t('options.code-format')}</Label>

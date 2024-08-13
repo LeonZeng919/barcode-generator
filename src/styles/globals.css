@@ -33,6 +33,9 @@
     --ring: 224 71.4% 4.1%;
 
     --radius: 0.5rem;
+
+    --in: 72.06% 0.191 231.6;
+    --fallback-in: #00b3f0;
   }
 
   .dark {
@@ -72,5 +75,12 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-info {
+    --tw-text-opacity: 1;
+    color: var(--fallback-in, oklch(var(--in) / var(--tw-text-opacity)));
   }
 }

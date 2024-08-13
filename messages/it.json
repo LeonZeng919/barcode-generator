@@ -5,7 +5,7 @@
   "Barcode": {
     "title": "Generatore di codici a barre {type}",
     "input": {
-      "title": "Inserisci codice a barre"
+      "title": "Valori del codice a barre (uno per riga)"
     },
     "options": {
       "name": "Opzioni",

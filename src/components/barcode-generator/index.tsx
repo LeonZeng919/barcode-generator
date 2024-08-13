@@ -1,6 +1,6 @@
 'use client'
-import React, { useEffect } from 'react'
-import { BarcodeProvider, useBarcodeContext } from './BarcodeContext'
+import React from 'react'
+import { BarcodeProvider } from './BarcodeContext'
 import { BarcodeCarousel } from './BarcodeCarousel'
 import {
   InputComponent,
@@ -15,17 +15,17 @@ const BarcodeGeneratorContent: React.FC = () => {
 
   return (
     <div className="mx-auto w-full max-w-5xl p-5">
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-        <div className="col-span-1 md:col-span-2">
+      <div className="grid grid-cols-1 gap-2">
+        <div className="col-span-1">
           <BarcodeCarousel />
         </div>
-        <div className=" order-2 col-span-1 ">
-          <InputComponent />
-        </div>
-        <div className=" order-1 col-span-1 md:order-2">
+        <div className=" col-span-1 ">
           <OptionsComponent />
         </div>
-        <div className=" order-2 col-span-1 md:col-span-2">
+        <div className=" col-span-1 ">
+          <InputComponent />
+        </div>
+        <div className="col-span-1">
           <OutputComponent />
         </div>
       </div>
