@@ -1,110 +1,91 @@
-# next-shadcn-intl-template
+# Barcode Generator
 
-This is a [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [ShadcnUI](https://ui.shadcn.com/), [NextIntl](https://next-intl-docs.vercel.app/) starter website template. It comes pre-configured with basic i18n, shadcn ui configuration.
+![Barcode Generator Logo](https://barcode-maker.com/apple-touch-icon.png)
 
-## Motivation
+Barcode Generator is a free, open-source tool that allows users to easily create various formats of one-dimensional barcodes. It supports multiple encoding types and enables users to generate barcodes in real-time and in bulk, completely free of charge.
 
-I noticed there are certain default configuration that I tend to reuse across different projects both at my professional work and personal world. These default configs usually takes a couple of hours to bootstrap and/ or copy paste from previous projects, thus it made sense to have a template preconfigured with them. I wanted to have a template which will allow me to clone and immediately start building new features.
+This project is based on the [next-shadcn-intl-template](https://github.com/LeonZeng919/next-shadcn-intl-template).
+
+Live demo: [https://barcode-maker.com](https://barcode-maker.com)
 
 ## Features
 
-- Next.js with Typescript
-- Easy styling customization with Tailwind 3.0
-- Sane default for all common UI components with ShadCN UI
-- Automatic locale detection and internationalization with `next-intl`
-- Auto class sorting with [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
-- Code formatting with husky pre-commit hook
+- Support for multiple barcode formats (Code 128, EAN/UPC, Code 39, ITF, MSI Plessey, Pharmacode, Codabar)
+- Real-time barcode generation
+- Bulk generation capability
+- Customizable barcode styles
+- Download options (PNG, JPG, GIF, SVG)
+- Mobile-friendly design
+- Internationalization support
 
-## Quick Start Guide
+## Getting Started
 
-```bash
-npx create-next-app -e https://github.com/LeonZeng919/next-shadcn-intl-template
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (version 12 or higher)
+- npm (usually comes with Node.js)
 
-You can start editing the page by modifying `app/[locale]/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
 
-## Project Structure
+   ```
+   git clone https://github.com/LeonZeng919/barcode-generator.git
+   ```
 
-```bash
-.
-├── LICENSE
-├── README.md
-├── components.json --> shadcn components config
-├── messages    --> i18n messages
-│   ├── en.json
-│   ├── fr.json
-│   └── zh.json
-├── next-env.d.ts
-├── next.config.mjs
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── public
-│   ├── next.svg
-│   └── vercel.svg
-├── src
-│   ├── app
-│   │   ├── [locale]
-│   │   │   ├── layout.tsx
-│   │   │   └── page.tsx
-│   │   ├── error.tsx
-│   │   ├── layout.tsx
-│   │   └── not-found.tsx
-│   ├── components
-│   │   ├── icons.tsx
-│   │   ├── language-toggle.tsx
-│   │   ├── main-nav.tsx
-│   │   ├── site-header.tsx
-│   │   ├── tailwind-indicator.tsx
-│   │   ├── theme-provider.tsx
-│   │   ├── theme-toggle.tsx
-│   │   └── ui  --> components installed from shadcn
-│   │       ├── button.tsx
-│   │       ├── dropdown-menu.tsx
-│   │       └── select.tsx
-│   ├── config
-│   │   └── site-i18n.ts
-│   ├── i18n.ts  --> i18n configs
-│   ├── lib
-│   │   ├── fonts.ts
-│   │   └── utils.ts
-│   ├── middleware.ts   --> i18n middleware
-│   ├── navigation.ts   --> i18n navigation components exports (ex: Link, useParams, ...etc)
-│   ├── styles
-│   │   └── globals.css  --> ui components color configs
-│   └── types
-│       └── nav.ts
-├── tailwind.config.ts
-├── tsconfig.json
-└── yarn.lock
-```
+2. Navigate to the project directory:
 
-## Customize
+   ```
+   cd barcode-generator
+   ```
 
-- `components.json` contains configuration for shadcn ui components, update this to your liking before installing new ui components from shadcn, you may have to reinstall the button component as well.
-- `i18n.ts` contains configuration for `next-intl`, update settings available here such as `defaultLocale`, `locales` supported, and `localePrefix` strategy to your liking.
-- `middleware.ts` contains middleware function created by `next-intl` for automatic locale detection and route matching.
-- `navigation.ts` contains exports for i18n supported navigation components. By default it is configured with `prefix: always` and `sharedPathname` strategy. Visit [next-intl documentation](https://next-intl-docs.vercel.app/) for more information.
+3. Install dependencies:
 
-## Learn More
+   ```
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Start the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Open your browser and visit `http://localhost:3000`.
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Enter the content you want to encode in the input box, with each line corresponding to one barcode.
+2. Use the tabs to switch between different encoding types.
+3. Select the encoding format and barcode style in the options.
+4. The system will generate the corresponding barcodes in real-time.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For more detailed usage instructions, please refer to our [FAQ](https://barcode-maker.com).
+
+## Contributing
+
+We welcome contributions from the community! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+Please make sure to update tests as appropriate and adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## License
 
-[MIT](https://github.com/duy-the-developer/nextjs-tailwind-shadcn-i18n-template/blob/production/LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [JsBarcode](https://github.com/lindell/JsBarcode) - The barcode generation library used in this project
+- [next-shadcn-intl-template](https://github.com/LeonZeng919/next-shadcn-intl-template) - The template used as a base for this project
+- All contributors who have helped to improve this project
+
+## Contact
+
+Leon Zeng - [@leonzeng2024](https://x.com/leonzeng2024)
+
+Project Link: [https://github.com/LeonZeng919/barcode-generator](https://github.com/LeonZeng919/barcode-generator)
