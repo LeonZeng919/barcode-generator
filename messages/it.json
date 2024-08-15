@@ -3,7 +3,7 @@
     "title": "Il generatore di codici a barre gratuito è uno strumento online che consente agli utenti di creare facilmente diversi formati di codici a barre e codici QR. Supporta molteplici tipi di codifica e permette agli utenti di generare codici a barre in tempo reale e in batch, completamente gratis."
   },
   "Barcode": {
-    "title": "Generatore di codici a barre {type}",
+    "title": "Generatore Gratuito di Codici a Barre {type}",
     "input": {
       "title": "Valori del codice a barre (uno per riga)"
     },

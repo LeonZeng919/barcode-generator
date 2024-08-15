@@ -3,7 +3,7 @@
     "title": "Den kostnadsfria streckkodsgeneratorn är ett onlineverktyg som gör det enkelt för användare att skapa olika format av streckkoder och QR-koder. Den stöder flera kodningstyper och låter användare generera streckkoder i realtid och i bulk, helt gratis."
   },
   "Barcode": {
-    "title": "{type} Streckkodsgenerator",
+    "title": "Gratis {type} Streckkodsgenerator",
     "input": {
       "title": "Streckkodsvärden (en per rad)"
     },

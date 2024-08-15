@@ -3,7 +3,7 @@
     "title": "Free Barcode Generator is an online tool that allows users to easily create various formats of barcodes and QR codes. It supports multiple encoding types and enables users to generate barcodes in real-time and in bulk, completely free of charge."
   },
   "Barcode": {
-    "title": "{type} Barcode Generator",
+    "title": "Free {type} Barcode Generator",
     "input": {
       "title": "Barcode Values (one per line)"
     },

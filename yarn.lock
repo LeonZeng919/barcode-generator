@@ -1020,6 +1020,11 @@ busboy@1.6.0:
   dependencies:
     streamsearch "^1.1.0"
 
+bwip-js@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.npmmirror.com/bwip-js/-/bwip-js-4.5.1.tgz"
+  integrity sha512-83yQCKiIftz5YonnsTh6wIkFoHHWl+B/XaGWD1UdRw7aB6XP9JtyYP9n8sRy3m5rzL+Ch/RUPnu28UW0RrPZUA==
+
 call-bind@^1.0.0, call-bind@^1.0.2, call-bind@^1.0.4, call-bind@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/call-bind/-/call-bind-1.0.5.tgz"

@@ -7,13 +7,10 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import { getSiteConfig } from '@/config/site-i18n'
 import { fontSans } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
-import { SiteHeader } from '@/components/Header'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
 import { NextIntlClientProvider } from 'next-intl'
-import Footer from '@/components/footer'
 import { notFound } from 'next/navigation'
-import ScrollControls from '@/components/ScrollControls'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -63,10 +60,7 @@ export default async function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <div className="relative flex min-h-screen flex-col">
-              <SiteHeader locale={locale} />
-              <main className="flex flex-1 justify-center">{children}</main>
-              <Footer />
-              <ScrollControls />
+              {children}
             </div>
           </NextIntlClientProvider>
           <TailwindIndicator />

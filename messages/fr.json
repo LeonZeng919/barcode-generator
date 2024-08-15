@@ -3,7 +3,7 @@
     "title": "Le générateur de codes-barres gratuit est un outil en ligne qui permet aux utilisateurs de créer facilement différents formats de codes-barres et de QR codes. Il prend en charge plusieurs types d'encodage et permet aux utilisateurs de générer des codes-barres en temps réel et en masse, totalement gratuitement."
   },
   "Barcode": {
-    "title": "Générateur de codes-barres {type}",
+    "title": "Générateur de Code-Barres {type} Gratuit",
     "input": {
       "title": "Valeurs de code-barres (une par ligne)"
     },

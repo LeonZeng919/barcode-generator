@@ -3,7 +3,7 @@
     "title": "De gratis barcodegenerator is een online tool waarmee gebruikers eenvoudig verschillende formaten barcodes en QR-codes kunnen maken. Het ondersteunt meerdere coderingstypes en stelt gebruikers in staat om realtime en in bulk barcodes te genereren, volledig gratis."
   },
   "Barcode": {
-    "title": "{type} Barcodegenerator",
+    "title": "Gratis {type} Barcode Generator",
     "input": {
       "title": "Barcode-waarden (één per regel)"
     },

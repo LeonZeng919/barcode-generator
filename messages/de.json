@@ -3,7 +3,7 @@
     "title": "Der kostenlose Barcode-Generator ist ein Online-Tool, mit dem Benutzer einfach verschiedene Formate von Barcodes und QR-Codes erstellen können. Es unterstützt mehrere Codierungstypen und ermöglicht Benutzern, Barcodes in Echtzeit und in großen Mengen völlig kostenlos zu generieren."
   },
   "Barcode": {
-    "title": "{type} Barcode-Generator",
+    "title": "Kostenloser {type} Barcode-Generator",
     "input": {
       "title": "Barcode-Werte (einer pro Zeile)"
     },
