@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
@@ -18,10 +18,22 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { ShareButton } from './share-button'
 import { DownloadBarcodes } from './DownloadBarcodes'
+import { useBarcodeGenerator } from './useBarcodeGenerator'
+import { BarcodeItem } from './BarcodeItem'
 
 export const InputComponent: React.FC = () => {
   const t = useTranslations('Barcode')
   const { input, setInput } = useBarcodeContext()
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.focus()
+      // 将光标移动到文本末尾
+      textareaRef.current.setSelectionRange(input.length, input.length)
+    }
+  }, [input.length])
+
   return (
     <div className="form-control">
       <label htmlFor="input" className="label">
@@ -42,9 +54,10 @@ export const InputComponent: React.FC = () => {
       </label>
       <Textarea
         id="input"
+        ref={textareaRef}
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="h-28"
+        className="h-36"
         placeholder="Enter values here, one per line"
       />
     </div>
@@ -52,9 +65,10 @@ export const InputComponent: React.FC = () => {
 }
 
 export const OutputComponent: React.FC = () => {
-  const { output } = useBarcodeContext()
-  const outputRef = React.useRef<HTMLDivElement>(null)
+  const { barcodes, barcodeLength, barcodeHeight, showText, codeFormat } =
+    useBarcodeGenerator()
   const t = useTranslations('Barcode')
+  const showNumber = barcodes.length > 1
 
   return (
     <div className="form-control">
@@ -64,17 +78,32 @@ export const OutputComponent: React.FC = () => {
             {t('output.title')}
           </span>
           <span className="label-text-alt flex items-center justify-between gap-4">
-            <DownloadBarcodes />
             <ShareButton size="icon" variant="ghost" />
           </span>
         </div>
       </label>
       <div
-        ref={outputRef}
         id="output"
-        className="overflow-auto rounded-md border bg-transparent p-3 text-sm shadow-sm"
-        dangerouslySetInnerHTML={{ __html: output }}
-      />
+        className="overflow-auto rounded-md border bg-transparent bg-white p-3 text-sm shadow-sm"
+      >
+        <div className="flex flex-col items-center">
+          {barcodes.map((value, index) => (
+            <BarcodeItem
+              key={`${value}-${index}`}
+              value={value}
+              index={index}
+              showNumber={showNumber}
+              codeFormat={codeFormat}
+              barcodeHeight={barcodeHeight}
+              showText={showText}
+              barcodeLength={barcodeLength}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="mt-2 flex justify-end">
+        <DownloadBarcodes />
+      </div>
     </div>
   )
 }

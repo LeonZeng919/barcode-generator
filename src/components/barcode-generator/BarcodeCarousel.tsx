@@ -65,7 +65,7 @@ export function BarcodeCarousel() {
               >
                 <CardContent className="flex flex-col items-center justify-center p-6">
                   <h2
-                    className={`text-lg font-semibold ${
+                    className={`text-base font-semibold ${
                       selectedIndex === index ? 'text-[#00b3f0]' : ''
                     }`}
                   >

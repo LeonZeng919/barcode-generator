@@ -7,6 +7,6 @@ export default function IndexPage({
   params: { locale: string }
 }) {
   unstable_setRequestLocale(locale)
-  const defaultBarcodeType = 'Code128'
+  const defaultBarcodeType = 'code128'
   redirect(`/${locale}/${defaultBarcodeType}`)
 }

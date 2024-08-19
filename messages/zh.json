@@ -5,7 +5,11 @@
   "Barcode": {
     "title": "免费 {type} 条码生成器",
     "input": {
-      "title": "条形码值（每行一个）"
+      "title": "输入数据（每行一个）"
+    },
+    "code-format": {
+      "title": "选择一个编码",
+      "search-placeholder": "输入编码"
     },
     "options": {
       "name": "选项",

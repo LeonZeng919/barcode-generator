@@ -1,18 +1,16 @@
 'use client'
 import React from 'react'
-import { BarcodeProvider } from './BarcodeContext'
+import { BarcodeProvider, useBarcodeContext } from './BarcodeContext'
 import { BarcodeCarousel } from './BarcodeCarousel'
 import {
   InputComponent,
   OptionsComponent,
   OutputComponent,
 } from './BarcodeComponents'
-import { useBarcodeGenerator } from './useBarcodeGenerator'
 import { Locale } from '@/i18n'
 
 const BarcodeGeneratorContent: React.FC = () => {
-  useBarcodeGenerator()
-
+  const { codeFormat } = useBarcodeContext()
   return (
     <div className="mx-auto w-full max-w-5xl p-5">
       <div className="grid grid-cols-1 gap-2">

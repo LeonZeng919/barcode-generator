@@ -8,11 +8,11 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useBarcodeContext } from './BarcodeContext'
-import JsBarcode from 'jsbarcode'
 import JSZip from 'jszip'
 import FileSaver from 'file-saver'
 import { Download } from 'lucide-react'
 import { ImageFormat } from '@/types/image'
+import bwipjs, { RenderOptions } from 'bwip-js/browser'
 
 export const DownloadBarcodes: React.FC = () => {
   const {
@@ -29,41 +29,23 @@ export const DownloadBarcodes: React.FC = () => {
     (value: string): Promise<Blob | string> => {
       return new Promise((resolve) => {
         const scaleFactor = 1
+        const options: RenderOptions = {
+          bcid: codeFormat.toLowerCase(),
+          text: value,
+          scale: 3,
+          height: barcodeHeight / 3,
+          includetext: showText,
+          textxalign: 'center',
+          backgroundcolor: '#ffffff',
+        }
         if (imageFormat === 'svg') {
-          const svg = document.createElementNS(
-            'http://www.w3.org/2000/svg',
-            'svg',
-          )
-          JsBarcode(svg, value, {
-            format: codeFormat.toUpperCase(),
-            width: 2,
-            height: barcodeHeight,
-            displayValue: showText,
-            font: 'Arial',
-            fontSize: 20,
-            textMargin: 2,
-            margin: 10,
-            background: '#ffffff',
-          })
-          svg.setAttribute('width', `${barcodeLength}`)
-          svg.setAttribute('height', `${barcodeHeight}`)
-          resolve(new XMLSerializer().serializeToString(svg))
+          const svg = bwipjs.toSVG(options)
+          resolve(svg)
         } else {
           const canvas = document.createElement('canvas')
           canvas.width = barcodeLength * scaleFactor
           canvas.height = barcodeHeight * scaleFactor
-
-          JsBarcode(canvas, value, {
-            format: codeFormat.toUpperCase(),
-            width: 2 * scaleFactor,
-            height: barcodeHeight * scaleFactor,
-            displayValue: showText,
-            font: 'Arial',
-            fontSize: 20 * scaleFactor,
-            textMargin: 2 * scaleFactor,
-            margin: 10 * scaleFactor,
-            background: '#ffffff',
-          })
+          bwipjs.toCanvas(canvas, options)
 
           canvas.toBlob(
             (blob) => {
@@ -124,7 +106,7 @@ export const DownloadBarcodes: React.FC = () => {
         size="sm"
         variant="outline"
         onClick={downloadBarcodes}
-        title="下载条形码"
+        title="Download Barcodes"
         className="h-8 px-3"
       >
         <Download className="mr-2 h-4 w-4" />
