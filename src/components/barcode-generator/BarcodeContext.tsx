@@ -70,7 +70,7 @@ export const BarcodeProvider: React.FC<{
   const [input, setInput] = useState<string>(initData)
   const [output, setOutput] = useState<string>('')
   const [barcodeLength, setBarcodeLength] = useState<number>(
-    savedState?.barcodeLength || 280,
+    savedState?.barcodeLength || 260,
   )
   const [barcodeHeight, setBarcodeHeight] = useState<number>(
     savedState?.barcodeHeight || 80,
