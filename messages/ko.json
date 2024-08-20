@@ -16,6 +16,10 @@
       "barcode-length": "바코드 길이 (mm)",
       "barcode-height": "바코드 높이 (mm)"
     },
+    "select-format": {
+      "name": "바코드 형식 선택",
+      "search-placeholder": "바코드 형식 입력..."
+    },
     "output": {
       "title": "출력"
     }

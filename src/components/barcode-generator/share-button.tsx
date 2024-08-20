@@ -59,7 +59,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
           <Copy className="h-5 w-5" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="bg-white text-slate-900 sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Copy Barcode Link</DialogTitle>
         </DialogHeader>
@@ -74,7 +74,10 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
                 value={generateBarcodeLink()}
                 readOnly
               />
-              <Button onClick={() => handleCopy(generateBarcodeLink())}>
+              <Button
+                onClick={() => handleCopy(generateBarcodeLink())}
+                className="bg-slate-900 text-white"
+              >
                 Copy
               </Button>
             </div>
@@ -83,7 +86,10 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
             <p className="mb-2 text-sm font-medium">Link to This Page</p>
             <div className="flex items-center space-x-2">
               <Input className="flex-1" value={generateShareLink()} readOnly />
-              <Button onClick={() => handleCopy(generateShareLink())}>
+              <Button
+                onClick={() => handleCopy(generateShareLink())}
+                className="bg-slate-900 text-white"
+              >
                 Copy
               </Button>
             </div>

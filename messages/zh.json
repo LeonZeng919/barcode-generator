@@ -16,6 +16,10 @@
       "barcode-length": "条码长度(mm)",
       "barcode-height": "条码高度(mm)"
     },
+    "select-format": {
+      "name": "选择条码格式",
+      "search-placeholder": "输入条码格式..."
+    },
     "output": {
       "title": "输出"
     }

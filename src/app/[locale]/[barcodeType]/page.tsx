@@ -7,7 +7,6 @@ import { barcodeTypes } from '@/config/barcode-types'
 import MarkdownContent from '@/components/MarkdownContent'
 import { SiteHeader } from '@/components/Header'
 import Footer from '@/components/footer'
-import ScrollControls from '@/components/ScrollControls'
 
 export default function BarcodePage({
   params: { locale, barcodeType },
@@ -36,10 +35,10 @@ export default function BarcodePage({
   return (
     <>
       <SiteHeader locale={locale} codeFormat={barcodeType} />
-      <main className="flex flex-1 justify-center">
-        <div className="max-w-3xl">
-          <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-            <div className="flex items-center gap-4">
+      <div className="flex justify-center">
+        <div className="mx-4 w-full">
+          <section className="grid items-center pb-8 ">
+            <div className="mx-2">
               <BarcodeGenerator
                 codeFormat={barcodeType}
                 initialData={initialData}
@@ -51,9 +50,8 @@ export default function BarcodePage({
             <MarkdownContent content={t('faq')} />
           </section>
         </div>
-      </main>
+      </div>
       <Footer />
-      <ScrollControls />
     </>
   )
 }

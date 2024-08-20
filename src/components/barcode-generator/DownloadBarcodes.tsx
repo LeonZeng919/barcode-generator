@@ -89,9 +89,12 @@ export const DownloadBarcodes: React.FC = () => {
         const blob = new Blob([barcodeData as string], {
           type: 'image/svg+xml;charset=utf-8',
         })
-        FileSaver.saveAs(blob, `barcode.${imageFormat}`)
+        FileSaver.saveAs(blob, `barcode-${codeFormat}.${imageFormat}`)
       } else {
-        FileSaver.saveAs(barcodeData as Blob, `barcode.${imageFormat}`)
+        FileSaver.saveAs(
+          barcodeData as Blob,
+          `barcode-${codeFormat}.${imageFormat}`,
+        )
       }
     } else {
       const zip = new JSZip()
@@ -101,12 +104,12 @@ export const DownloadBarcodes: React.FC = () => {
         const barcodeData = await generateBarcode(value)
         if (imageFormat === 'svg') {
           zip.file(
-            `barcode_${i + 1}(barcode-maker).${imageFormat}`,
+            `barcode-${codeFormat}_${i + 1}.${imageFormat}`,
             barcodeData as string,
           )
         } else {
           zip.file(
-            `barcode_${i + 1}(barcode-maker).${imageFormat}`,
+            `barcode-${codeFormat}_${i + 1}.${imageFormat}`,
             barcodeData as Blob,
           )
         }
@@ -116,16 +119,16 @@ export const DownloadBarcodes: React.FC = () => {
         FileSaver.saveAs(content, 'barcodes(barcode-maker).zip')
       })
     }
-  }, [input, generateBarcode, imageFormat])
+  }, [input, generateBarcode, imageFormat, codeFormat])
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex flex-wrap items-center justify-center space-x-2 space-y-2">
       <Button
-        size="sm"
+        size="lg"
         variant="outline"
         onClick={downloadBarcodes}
-        title="下载条形码"
-        className="h-8 px-3"
+        title="download barcodes"
+        className="h-10 border-none bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 px-6 text-white hover:from-blue-700 hover:via-purple-700 hover:to-red-700"
       >
         <Download className="mr-2 h-4 w-4" />
         <span className="text-sm">Download</span>
@@ -135,7 +138,7 @@ export const DownloadBarcodes: React.FC = () => {
         value={imageFormat}
         onValueChange={(value: ImageFormat) => setImageFormat(value)}
       >
-        <SelectTrigger className="h-8 w-[70px]">
+        <SelectTrigger className="h-8 w-[70px] bg-white">
           <SelectValue placeholder="Format" />
         </SelectTrigger>
         <SelectContent>

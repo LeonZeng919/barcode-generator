@@ -10,33 +10,37 @@ import {
 } from '@/components/ui/tooltip'
 import { Play, Pause, ArrowUp, Settings } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useBarcodeContext } from './BarcodeContext'
 
-const AutoScrollComponent = () => {
+const ScrollControls = ({
+  outputRef,
+}: {
+  outputRef: React.RefObject<HTMLElement>
+}) => {
   const [isScrolling, setIsScrolling] = useState(false)
   const [scrollSpeed, setScrollSpeed] = useState(2)
-  const [showButton, setShowButton] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
+  const [showControls, setShowControls] = useState(false)
   const lastScrollTime = useRef(0)
   const animationFrameId = useRef<number | null>(null)
-
-  const checkScrollable = useCallback(() => {
-    const body = document.body
-    const html = document.documentElement
-    const height = Math.max(
-      body.scrollHeight,
-      body.offsetHeight,
-      html.clientHeight,
-      html.scrollHeight,
-      html.offsetHeight,
-    )
-    setShowButton(height > window.innerHeight)
-  }, [])
+  const { output } = useBarcodeContext()
 
   useEffect(() => {
+    const checkScrollable = () => {
+      if (outputRef.current) {
+        const isScrollable =
+          outputRef.current.scrollHeight > outputRef.current.clientHeight
+        setShowControls(isScrollable)
+      }
+    }
+
     checkScrollable()
     window.addEventListener('resize', checkScrollable)
-    return () => window.removeEventListener('resize', checkScrollable)
-  }, [checkScrollable])
+
+    return () => {
+      window.removeEventListener('resize', checkScrollable)
+    }
+  }, [outputRef, output])
 
   useEffect(() => {
     const scrollStep = (timestamp: number) => {
@@ -44,14 +48,18 @@ const AutoScrollComponent = () => {
       const deltaTime = timestamp - lastScrollTime.current
       const scrollAmount = (scrollSpeed * deltaTime) / 16 // 16ms is roughly one frame at 60fps
 
-      window.scrollBy(0, scrollAmount)
-      lastScrollTime.current = timestamp
+      if (outputRef.current) {
+        outputRef.current.scrollTop += scrollAmount
+        const { scrollTop, scrollHeight, clientHeight } = outputRef.current
 
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        setIsScrolling(false)
-      } else if (isScrolling) {
-        animationFrameId.current = requestAnimationFrame(scrollStep)
+        if (scrollTop + clientHeight >= scrollHeight) {
+          setIsScrolling(false)
+        } else if (isScrolling) {
+          animationFrameId.current = requestAnimationFrame(scrollStep)
+        }
       }
+
+      lastScrollTime.current = timestamp
     }
 
     if (isScrolling) {
@@ -64,7 +72,7 @@ const AutoScrollComponent = () => {
         cancelAnimationFrame(animationFrameId.current)
       }
     }
-  }, [isScrolling, scrollSpeed])
+  }, [isScrolling, scrollSpeed, outputRef])
 
   const toggleScrolling = () => setIsScrolling(!isScrolling)
 
@@ -72,48 +80,42 @@ const AutoScrollComponent = () => {
 
   const scrollToTop = () => {
     setIsScrolling(false)
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
+    if (outputRef.current) {
+      outputRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    }
   }
+
   const t = useTranslations('scroll')
 
-  if (!showButton) return null
+  if (!showControls) return null
+
   return (
     <TooltipProvider>
-      <div className="fixed bottom-4 right-4 flex flex-col items-center space-y-2">
+      <div className="relative flex items-center space-x-2">
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button
-              size="icon"
-              onClick={toggleScrolling}
-              className="h-10 w-10 rounded-full bg-white shadow-lg hover:bg-gray-100"
-              variant="outline"
-            >
+            <Button size="icon" onClick={toggleScrolling} variant="ghost">
               {isScrolling ? (
-                <Pause className="text-gray-700" size={20} />
+                <Pause className="h-4 w-4" />
               ) : (
-                <Play className="text-gray-700" size={20} />
+                <Play className="h-4 w-4" />
               )}
             </Button>
           </TooltipTrigger>
-          <TooltipContent side="left">
+          <TooltipContent side="bottom">
             <p>{isScrolling ? t('pause-scroll') : t('start-scroll')}</p>
           </TooltipContent>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button
-              size="icon"
-              onClick={scrollToTop}
-              className="h-10 w-10 rounded-full bg-white shadow-lg hover:bg-gray-100"
-              variant="outline"
-            >
-              <ArrowUp className="text-gray-700" size={20} />
+            <Button size="icon" onClick={scrollToTop} variant="ghost">
+              <ArrowUp className="h-4 w-4" />
             </Button>
           </TooltipTrigger>
-          <TooltipContent side="left">
+          <TooltipContent side="bottom">
             <p>{t('to-top')}</p>
           </TooltipContent>
         </Tooltip>
@@ -122,25 +124,24 @@ const AutoScrollComponent = () => {
             <Button
               size="icon"
               onClick={() => setShowSettings(!showSettings)}
-              className="h-10 w-10 rounded-full bg-white shadow-lg hover:bg-gray-100"
-              variant="outline"
+              variant="ghost"
             >
-              <Settings className="text-gray-700" size={20} />
+              <Settings className="h-4 w-4" />
             </Button>
           </TooltipTrigger>
-          <TooltipContent side="left">
+          <TooltipContent side="bottom">
             <p>{t('setting')}</p>
           </TooltipContent>
         </Tooltip>
         {showSettings && (
-          <div className="rounded-lg bg-white p-2 shadow-lg">
+          <div className="absolute bottom-full right-0 mb-2">
             <Slider
               orientation="vertical"
               value={[scrollSpeed]}
               onValueChange={handleSpeedChange}
               max={10}
               step={1}
-              className="h-24"
+              className="h-24 w-4 rounded-lg border-slate-800"
             />
           </div>
         )}
@@ -149,4 +150,4 @@ const AutoScrollComponent = () => {
   )
 }
 
-export default AutoScrollComponent
+export default ScrollControls

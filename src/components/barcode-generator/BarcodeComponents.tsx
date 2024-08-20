@@ -2,22 +2,14 @@ import React from 'react'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
 import { Copy, Sliders } from 'lucide-react'
 import { useBarcodeContext } from './BarcodeContext'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../ui/select'
-import { barcodeTypes, findBarcodeCategory } from '@/config/barcode-types'
-import { usePathname, useRouter } from 'next/navigation'
+
 import { useTranslations } from 'next-intl'
 import { ShareButton } from './share-button'
-import { DownloadBarcodes } from './DownloadBarcodes'
+import { Switch } from '@/components/ui/switch'
+import ScrollControls from './ScrollControls'
 
 export const InputComponent: React.FC = () => {
   const t = useTranslations('Barcode')
@@ -44,7 +36,7 @@ export const InputComponent: React.FC = () => {
         id="input"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="h-28"
+        className="h-28 bg-white"
         placeholder="Enter values here, one per line"
       />
     </div>
@@ -57,22 +49,22 @@ export const OutputComponent: React.FC = () => {
   const t = useTranslations('Barcode')
 
   return (
-    <div className="form-control">
+    <div className="form-control flex flex-col">
       <label htmlFor="output" className="label">
         <div className="flex justify-between">
           <span className="label-text text-lg font-semibold">
             {t('output.title')}
           </span>
           <span className="label-text-alt flex items-center justify-between gap-4">
-            <DownloadBarcodes />
             <ShareButton size="icon" variant="ghost" />
+            <ScrollControls outputRef={outputRef} />
           </span>
         </div>
       </label>
       <div
         ref={outputRef}
         id="output"
-        className="overflow-auto rounded-md border bg-transparent p-3 text-sm shadow-sm"
+        className="flex aspect-square max-h-[480px] flex-col items-center overflow-auto rounded-md border bg-indigo-100 bg-transparent bg-opacity-30 p-3 text-sm shadow-sm"
         dangerouslySetInnerHTML={{ __html: output }}
       />
     </div>
@@ -87,18 +79,9 @@ export const OptionsComponent: React.FC = () => {
     setBarcodeHeight,
     showText,
     setShowText,
-    codeFormat,
   } = useBarcodeContext()
   const t = useTranslations('Barcode')
 
-  const router = useRouter()
-  const pathname = usePathname()
-  const codeType = findBarcodeCategory(codeFormat)
-  const switchCodeFormat = (newCodeFormat: string) => {
-    if (newCodeFormat === codeFormat) return
-    const newPath = pathname.replace(`/${codeFormat}`, `/${newCodeFormat}`)
-    router.push(newPath)
-  }
   return (
     <div>
       <div className="flex justify-between">
@@ -112,46 +95,20 @@ export const OptionsComponent: React.FC = () => {
         </span>
       </div>
 
-      <div className="xs:text-sm h-36 overflow-auto rounded-md border bg-transparent p-3 text-xs shadow-sm">
-        <div className="grid grid-cols-2 gap-2 ">
+      <div className="xs:text-sm rounded-md  bg-transparent p-3 text-xs shadow-sm">
+        <div className="grid grid-cols-1 gap-2 ">
           <div className="md:col-span-1">
-            <Label htmlFor="barcodeType">{t('options.code-format')}</Label>
-            <Select value={codeFormat} onValueChange={switchCodeFormat}>
-              <SelectTrigger id="barcodeType">
-                <SelectValue placeholder="Select barcode type" />
-              </SelectTrigger>
-              <SelectContent>
-                {barcodeTypes
-                  .filter((barcodeType) => barcodeType.name === codeType)
-                  .flatMap((type) => type.types)
-                  .map((type) => (
-                    <SelectItem key={type.value} value={type.value}>
-                      {type.name}
-                    </SelectItem>
-                  ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="md:col-span-1">
-            {/* <div className="flex items-center space-x-4"> */}
-            <span className="whitespace-nowrap text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              {t('options.show-text')} :
-            </span>
-            <RadioGroup
-              defaultValue={showText ? 'yes' : 'no'}
-              onValueChange={(value) => setShowText(value === 'yes')}
-              className="flex items-center space-x-4"
-            >
-              <div className="mt-2 flex items-center space-x-1">
-                <RadioGroupItem value="yes" id="showTextYes" />
-                <Label htmlFor="showTextYes">{t('options.show-yes')}</Label>
-              </div>
-              <div className="mt-2 flex items-center space-x-1">
-                <RadioGroupItem value="no" id="showTextNo" />
-                <Label htmlFor="showTextNo">{t('options.show-no')}</Label>
-              </div>
-            </RadioGroup>
-            {/* </div> */}
+            <div className="flex items-center justify-between">
+              <Label htmlFor="showText" className="text-sm font-medium">
+                {t('options.show-text')}
+              </Label>
+              <Switch
+                id="showText"
+                checked={showText}
+                onCheckedChange={setShowText}
+                className="border-gray-400"
+              />
+            </div>
           </div>
           <div className="md:col-span-1">
             <Label htmlFor="barcodeLength">{t('options.barcode-length')}</Label>
@@ -160,6 +117,7 @@ export const OptionsComponent: React.FC = () => {
               type="number"
               value={barcodeLength}
               onChange={(e) => setBarcodeLength(Number(e.target.value))}
+              className="bg-white"
             />
           </div>
           <div className="md:col-span-1">
@@ -168,6 +126,7 @@ export const OptionsComponent: React.FC = () => {
               id="barcodeHeight"
               type="number"
               value={barcodeHeight}
+              className="bg-white"
               onChange={(e) => setBarcodeHeight(Number(e.target.value))}
             />
           </div>

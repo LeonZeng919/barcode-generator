@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { BarcodeProvider } from './BarcodeContext'
 import { BarcodeCarousel } from './BarcodeCarousel'
 import {
@@ -9,27 +9,63 @@ import {
 } from './BarcodeComponents'
 import { useBarcodeGenerator } from './useBarcodeGenerator'
 import { Locale } from '@/i18n'
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from '../ui/resizable'
+import { DownloadBarcodes } from './DownloadBarcodes'
+import { Separator } from '../ui/separator'
 
 const BarcodeGeneratorContent: React.FC = () => {
   useBarcodeGenerator()
 
+  const [isCollapsed, setIsCollapsed] = useState(false)
+  const defaultLayout = [20, 50, 30]
+  const navCollapsedSize = 4
+
   return (
-    <div className="mx-auto w-full max-w-5xl p-5">
-      <div className="grid grid-cols-1 gap-2">
-        <div className="col-span-1">
-          <BarcodeCarousel />
+    <ResizablePanelGroup
+      direction="horizontal"
+      className="h-full max-h-[800px] items-stretch"
+    >
+      <ResizablePanel
+        defaultSize={defaultLayout[0]}
+        collapsedSize={navCollapsedSize}
+        collapsible={true}
+        minSize={5}
+        maxSize={22}
+        onCollapse={() => setIsCollapsed(true)}
+        onExpand={() => setIsCollapsed(false)}
+      >
+        <div className="p-4">
+          <BarcodeCarousel isCollapsed={isCollapsed} />
         </div>
-        <div className=" col-span-1 ">
-          <OptionsComponent />
+      </ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
+        <div className="flex flex-col gap-4 p-4">
+          <div>
+            <InputComponent />
+          </div>
+          <div>
+            <OutputComponent />
+          </div>
         </div>
-        <div className=" col-span-1 ">
-          <InputComponent />
+      </ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel defaultSize={defaultLayout[2]} minSize={30}>
+        <div className="flex h-full flex-col p-4">
+          <div className="">
+            <OptionsComponent />
+          </div>
+          <div className="">
+            <Separator className="my-4" />
+            <DownloadBarcodes />
+          </div>
         </div>
-        <div className="col-span-1">
-          <OutputComponent />
-        </div>
-      </div>
-    </div>
+      </ResizablePanel>
+    </ResizablePanelGroup>
   )
 }
 
@@ -40,7 +76,9 @@ const BarcodeGenerator: React.FC<{
 }> = ({ codeFormat, initialData, locale }) => {
   return (
     <BarcodeProvider value={{ initCodeFormat: codeFormat, initialData }}>
-      <BarcodeGeneratorContent />
+      <div className="overflow-hidden rounded-[0.5rem] border shadow  dark:bg-slate-100 dark:text-slate-900">
+        <BarcodeGeneratorContent />
+      </div>
     </BarcodeProvider>
   )
 }

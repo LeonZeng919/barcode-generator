@@ -16,6 +16,10 @@
       "barcode-length": "バーコードの長さ(mm)",
       "barcode-height": "バーコードの高さ(mm)"
     },
+    "select-format": {
+      "name": "バーコード形式を選択",
+      "search-placeholder": "バーコード形式を入力..."
+    },
     "output": {
       "title": "出力"
     }

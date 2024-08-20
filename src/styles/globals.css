@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: linear-gradient(to bottom right, #ffffff, #e0e0e0, #f0f0f0);
     --foreground: 224 71.4% 4.1%;
 
     --card: 0 0% 100%;
@@ -39,7 +39,12 @@
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: linear-gradient(
+      to right top,
+      hsl(225.9 70.7% 40.2%),
+      hsl(226.2, 57%, 25%),
+      hsl(200.4 98% 39.4%)
+    );
     --foreground: 210 20% 98%;
 
     --card: 224 71.4% 4.1%;
@@ -63,8 +68,8 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
 
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
+    --border: 220 13% 81%;
+    --input: 220 13% 81%;
     --ring: 216 12.2% 83.9%;
   }
 }
@@ -74,7 +79,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[image:var(--background)] text-foreground;
   }
 }
 

@@ -16,6 +16,10 @@
       "barcode-length": "Longitud del código de barras (mm)",
       "barcode-height": "Altura del código de barras (mm)"
     },
+    "select-format": {
+      "name": "Seleccionar formato de código de barras",
+      "search-placeholder": "Ingrese el formato de código de barras..."
+    },
     "output": {
       "title": "Salida"
     }

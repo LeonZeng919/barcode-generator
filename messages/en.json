@@ -16,6 +16,10 @@
       "barcode-length": "Barcode Length (mm)",
       "barcode-height": "Barcode Height (mm)"
     },
+    "select-format": {
+      "name": "Select barcode format",
+      "search-placeholder": "Enter barcode format..."
+    },
     "output": {
       "title": "Output"
     }

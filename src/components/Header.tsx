@@ -15,9 +15,8 @@ interface SiteHeaderProps {
 export function SiteHeader({ locale, codeFormat }: SiteHeaderProps) {
   const t = useTranslations('Barcode')
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
+    <header className="w-full bg-background">
       <div className="container flex h-16 items-center justify-between space-x-4">
-        <LanguageToggle locale={locale} />
         <div className="flex items-center">
           <Link href={`/${locale}`} className="flex items-center space-x-2">
             <h1 className="max-w-[66vw] truncate text-2xl font-bold normal-case sm:max-w-full sm:text-3xl">
@@ -35,7 +34,8 @@ export function SiteHeader({ locale, codeFormat }: SiteHeaderProps) {
             <Icons.gitHub className="h-5 w-5" />
             <span className="sr-only">GitHub</span>
           </Link>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
+          <LanguageToggle locale={locale} />
         </div>
       </div>
     </header>

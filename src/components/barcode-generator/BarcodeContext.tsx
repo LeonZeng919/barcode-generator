@@ -70,10 +70,10 @@ export const BarcodeProvider: React.FC<{
   const [input, setInput] = useState<string>(initData)
   const [output, setOutput] = useState<string>('')
   const [barcodeLength, setBarcodeLength] = useState<number>(
-    savedState?.barcodeLength || 200,
+    savedState?.barcodeLength || 280,
   )
   const [barcodeHeight, setBarcodeHeight] = useState<number>(
-    savedState?.barcodeHeight || 60,
+    savedState?.barcodeHeight || 80,
   )
   const [showText, setShowText] = useState<boolean>(
     savedState?.showText ?? true,

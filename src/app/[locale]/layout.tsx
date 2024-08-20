@@ -57,7 +57,7 @@ export default async function RootLayout({
           inter.className,
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <NextIntlClientProvider locale={locale} messages={messages}>
             <div className="relative flex min-h-screen flex-col">
               {children}

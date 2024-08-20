@@ -16,6 +16,10 @@
       "barcode-length": "Lunghezza del codice a barre (mm)",
       "barcode-height": "Altezza del codice a barre (mm)"
     },
+    "select-format": {
+      "name": "Seleziona formato codice a barre",
+      "search-placeholder": "Inserisci il formato del codice a barre..."
+    },
     "output": {
       "title": "Output"
     }

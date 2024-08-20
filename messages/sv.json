@@ -16,6 +16,10 @@
       "barcode-length": "Streckkodens längd (mm)",
       "barcode-height": "Streckkodens höjd (mm)"
     },
+    "select-format": {
+      "name": "Välj streckkodformat",
+      "search-placeholder": "Ange streckkodformat..."
+    },
     "output": {
       "title": "Utdata"
     }
