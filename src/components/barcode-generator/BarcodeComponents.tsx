@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl'
 import { ShareButton } from './share-button'
 import { Switch } from '@/components/ui/switch'
 import ScrollControls from './ScrollControls'
+import ImportData from './ImportData'
 
 export const InputComponent: React.FC = () => {
   const t = useTranslations('Barcode')
@@ -22,6 +23,7 @@ export const InputComponent: React.FC = () => {
             {t('input.title')}
           </span>
           <span className="label-text-alt flex gap-4">
+            <ImportData setInput={setInput} />
             <Button
               size="icon"
               variant="ghost"

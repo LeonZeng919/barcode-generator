@@ -134,14 +134,14 @@ const ScrollControls = ({
           </TooltipContent>
         </Tooltip>
         {showSettings && (
-          <div className="absolute bottom-full right-0 mb-2">
+          <div className="absolute bottom-full right-0">
             <Slider
-              orientation="vertical"
+              orientation="horizontal"
               value={[scrollSpeed]}
               onValueChange={handleSpeedChange}
               max={10}
               step={1}
-              className="h-24 w-4 rounded-lg border-slate-800"
+              className="h-4 w-24 rounded-lg border"
             />
           </div>
         )}
