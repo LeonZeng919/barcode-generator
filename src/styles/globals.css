@@ -88,4 +88,36 @@
     --tw-text-opacity: 1;
     color: var(--fallback-in, oklch(var(--in) / var(--tw-text-opacity)));
   }
+  .barcode-generator-content {
+    height: 100%;
+    max-height: 800px;
+  }
+
+  .small-screen-layout {
+    display: none;
+  }
+
+  .large-screen-layout {
+    display: block;
+  }
+
+  .panel {
+    display: none;
+  }
+
+  .panel.active {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .small-screen-layout {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .large-screen-layout {
+      display: none;
+    }
+  }
 }
