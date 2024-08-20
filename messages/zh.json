@@ -14,7 +14,8 @@
       "show-yes": "是",
       "show-no": "否",
       "barcode-length": "条码长度(mm)",
-      "barcode-height": "条码高度(mm)"
+      "barcode-height": "条码高度(mm)",
+      "barcode-margin": "条码间距(mm)"
     },
     "select-format": {
       "name": "选择条码格式",

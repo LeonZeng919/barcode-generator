@@ -14,7 +14,8 @@
       "show-yes": "Да",
       "show-no": "Нет",
       "barcode-length": "Длина штрих-кода (мм)",
-      "barcode-height": "Высота штрих-кода (мм)"
+      "barcode-height": "Высота штрих-кода (мм)",
+      "barcode-margin": "Поле штрих-кода (мм)"
     },
     "select-format": {
       "name": "Выберите формат штрих-кода",

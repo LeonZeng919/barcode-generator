@@ -10,6 +10,7 @@ export const useBarcodeGenerator = () => {
     barcodeHeight,
     showText,
     codeFormat,
+    barcodeMargin,
   } = useBarcodeContext()
 
   const generateBarcodes = useCallback(() => {
@@ -28,7 +29,7 @@ export const useBarcodeGenerator = () => {
           displayValue: showText,
           font: 'Arial',
           fontSize: 15,
-          margin: 0,
+          margin: barcodeMargin,
         })
         svg.setAttribute('width', `${barcodeLength}`)
 
@@ -50,7 +51,15 @@ export const useBarcodeGenerator = () => {
         `<p>Error generating barcodes.${error}, Please check your input and selected format.</p>`,
       )
     }
-  }, [input, setOutput, barcodeHeight, showText, barcodeLength, codeFormat])
+  }, [
+    input,
+    setOutput,
+    codeFormat,
+    barcodeHeight,
+    showText,
+    barcodeMargin,
+    barcodeLength,
+  ])
 
   useEffect(() => {
     generateBarcodes()

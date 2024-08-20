@@ -14,7 +14,8 @@
       "show-yes": "Ja",
       "show-no": "Nej",
       "barcode-length": "Streckkodens längd (mm)",
-      "barcode-height": "Streckkodens höjd (mm)"
+      "barcode-height": "Streckkodens höjd (mm)",
+      "barcode-margin": "Streckkodsmarginal (mm)"
     },
     "select-format": {
       "name": "Välj streckkodformat",

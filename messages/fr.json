@@ -14,7 +14,8 @@
       "show-yes": "Oui",
       "show-no": "Non",
       "barcode-length": "Longueur du code-barres (mm)",
-      "barcode-height": "Hauteur du code-barres (mm)"
+      "barcode-height": "Hauteur du code-barres (mm)",
+      "barcode-margin": "Marge du code-barres (mm)"
     },
     "select-format": {
       "name": "Sélectionner le format de code-barres",

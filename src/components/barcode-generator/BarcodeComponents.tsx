@@ -66,7 +66,7 @@ export const OutputComponent: React.FC = () => {
       <div
         ref={outputRef}
         id="output"
-        className="flex aspect-square max-h-[480px] flex-col items-center overflow-auto rounded-md border bg-indigo-100 bg-transparent bg-opacity-30 p-3 text-sm shadow-sm"
+        className="flex aspect-square max-h-[480px] flex-col items-center overflow-auto rounded-md border bg-blue-100 bg-transparent bg-opacity-30 p-3 text-sm shadow-sm"
         dangerouslySetInnerHTML={{ __html: output }}
       />
     </div>
@@ -81,6 +81,8 @@ export const OptionsComponent: React.FC = () => {
     setBarcodeHeight,
     showText,
     setShowText,
+    barcodeMargin,
+    setBarcodeMargin,
   } = useBarcodeContext()
   const t = useTranslations('Barcode')
 
@@ -130,6 +132,16 @@ export const OptionsComponent: React.FC = () => {
               value={barcodeHeight}
               className="bg-white"
               onChange={(e) => setBarcodeHeight(Number(e.target.value))}
+            />
+          </div>
+          <div className="md:col-span-1">
+            <Label htmlFor="barcodeMargin">{t('options.barcode-margin')}</Label>
+            <Input
+              id="barcodeMargin"
+              type="number"
+              value={barcodeMargin}
+              className="bg-white"
+              onChange={(e) => setBarcodeMargin(Number(e.target.value))}
             />
           </div>
         </div>

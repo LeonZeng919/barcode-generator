@@ -14,7 +14,8 @@
       "show-yes": "Yes",
       "show-no": "No",
       "barcode-length": "Barcode Length (mm)",
-      "barcode-height": "Barcode Height (mm)"
+      "barcode-height": "Barcode Height (mm)",
+      "barcode-margin": "Barcode margin (mm)"
     },
     "select-format": {
       "name": "Select barcode format",

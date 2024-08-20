@@ -41,14 +41,14 @@ const BarcodeGeneratorContent: React.FC = () => {
             variant="ghost"
             size="icon"
           >
-            <Menu className="h-4 w-4" />
+            <Menu className="h-6 w-6" />
           </Button>
           <Button
             onClick={() => togglePanel('options')}
             variant="ghost"
             size="icon"
           >
-            <Sliders className="h-4 w-4" />
+            <Sliders className="h-6 w-6" />
           </Button>
         </div>
         <div className="flex-grow overflow-auto">

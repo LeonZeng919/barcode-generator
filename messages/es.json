@@ -14,7 +14,8 @@
       "show-yes": "Sí",
       "show-no": "No",
       "barcode-length": "Longitud del código de barras (mm)",
-      "barcode-height": "Altura del código de barras (mm)"
+      "barcode-height": "Altura del código de barras (mm)",
+      "barcode-margin": "Margen del código de barras (mm)"
     },
     "select-format": {
       "name": "Seleccionar formato de código de barras",

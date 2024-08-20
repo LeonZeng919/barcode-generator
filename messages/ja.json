@@ -14,7 +14,8 @@
       "show-yes": "はい",
       "show-no": "いいえ",
       "barcode-length": "バーコードの長さ(mm)",
-      "barcode-height": "バーコードの高さ(mm)"
+      "barcode-height": "バーコードの高さ(mm)",
+      "barcode-margin": "バーコード余白 (mm)"
     },
     "select-format": {
       "name": "バーコード形式を選択",

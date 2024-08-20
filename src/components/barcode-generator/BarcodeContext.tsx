@@ -26,6 +26,8 @@ interface BarcodeContextType {
   setCodeFormat: (format: string) => void
   imageFormat: ImageFormat
   setImageFormat: (format: ImageFormat) => void
+  barcodeMargin: number
+  setBarcodeMargin: (margin: number) => void
 }
 
 interface SavedState {
@@ -33,6 +35,7 @@ interface SavedState {
   barcodeHeight: number
   showText: boolean
   imageFormat: ImageFormat
+  barcodeMargin: number
 }
 
 const BarcodeContext = createContext<BarcodeContextType | undefined>(undefined)
@@ -66,7 +69,7 @@ export const BarcodeProvider: React.FC<{
       .flatMap((barcode) => barcode.types)
       .findLast((barcode) => barcode.value === initCodeFormat)?.initData ||
     ''
-
+  const [barcodeMargin, setBarcodeMargin] = useState<number>(10)
   const [input, setInput] = useState<string>(initData)
   const [output, setOutput] = useState<string>('')
   const [barcodeLength, setBarcodeLength] = useState<number>(
@@ -102,6 +105,8 @@ export const BarcodeProvider: React.FC<{
       setCodeFormat,
       imageFormat,
       setImageFormat,
+      barcodeMargin,
+      setBarcodeMargin,
     }),
     [
       input,
@@ -112,6 +117,7 @@ export const BarcodeProvider: React.FC<{
       showOptions,
       codeFormat,
       imageFormat,
+      barcodeMargin,
     ],
   )
 
@@ -121,8 +127,9 @@ export const BarcodeProvider: React.FC<{
       barcodeHeight,
       showText,
       imageFormat,
+      barcodeMargin,
     })
-  }, [barcodeLength, barcodeHeight, showText, imageFormat])
+  }, [barcodeLength, barcodeHeight, showText, imageFormat, barcodeMargin])
 
   return (
     <BarcodeContext.Provider value={value}>{children}</BarcodeContext.Provider>
