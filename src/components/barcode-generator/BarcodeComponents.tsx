@@ -92,11 +92,6 @@ export const OptionsComponent: React.FC = () => {
         <span className="label-text text-lg font-semibold">
           {t('options.name')}
         </span>
-        <span className="label-text-alt flex items-center gap-4">
-          <Button size="icon" variant="ghost">
-            <Sliders className="h-5 w-5" />
-          </Button>
-        </span>
       </div>
 
       <div className="xs:text-sm rounded-md  bg-transparent p-3 text-xs shadow-sm">
