@@ -23,6 +23,13 @@
     },
     "output": {
       "title": "Uitvoer"
+    },
+    "layout": {
+      "name": "Afdrukindeling",
+      "1x2": "1 kolom afdrukken",
+      "2x3": "2 kolommen afdrukken",
+      "3x4": "3 kolommen afdrukken",
+      "4x5": "4 kolommen afdrukken"
     }
   },
   "scroll": {

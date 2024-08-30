@@ -23,6 +23,13 @@
     },
     "output": {
       "title": "Sortie"
+    },
+    "layout": {
+      "name": "Mise en page d'impression",
+      "1x2": "Imprimer 1 colonne",
+      "2x3": "Imprimer 2 colonnes",
+      "3x4": "Imprimer 3 colonnes",
+      "4x5": "Imprimer 4 colonnes"
     }
   },
   "scroll": {

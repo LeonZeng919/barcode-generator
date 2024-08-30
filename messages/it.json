@@ -23,6 +23,13 @@
     },
     "output": {
       "title": "Output"
+    },
+    "layout": {
+      "name": "Layout di stampa",
+      "1x2": "Stampa 1 colonna",
+      "2x3": "Stampa 2 colonne",
+      "3x4": "Stampa 3 colonne",
+      "4x5": "Stampa 4 colonne"
     }
   },
   "scroll": {

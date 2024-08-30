@@ -23,6 +23,13 @@
     },
     "output": {
       "title": "Output"
+    },
+    "layout": {
+      "name": "Print Layout",
+      "1x2": "Print 1 Column",
+      "2x3": "Print 2 Columns",
+      "3x4": "Print 3 Columns",
+      "4x5": "Print 4 Columns"
     }
   },
   "scroll": {

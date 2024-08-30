@@ -23,6 +23,13 @@
     },
     "output": {
       "title": "Salida"
+    },
+    "layout": {
+      "name": "Diseño de impresión",
+      "1x2": "Imprimir 1 columna",
+      "2x3": "Imprimir 2 columnas",
+      "3x4": "Imprimir 3 columnas",
+      "4x5": "Imprimir 4 columnas"
     }
   },
   "scroll": {

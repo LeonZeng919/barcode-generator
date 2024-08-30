@@ -23,6 +23,13 @@
     },
     "output": {
       "title": "Ausgabe"
+    },
+    "layout": {
+      "name": "Drucklayout",
+      "1x2": "1 Spalte drucken",
+      "2x3": "2 Spalten drucken",
+      "3x4": "3 Spalten drucken",
+      "4x5": "4 Spalten drucken"
     }
   },
   "scroll": {

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect } from 'react'
 import JsBarcode from 'jsbarcode'
 import { useBarcodeContext } from './BarcodeContext'
 
@@ -17,7 +17,7 @@ export const useBarcodeGenerator = () => {
     const values = input.split('\n').filter((value) => value.trim() !== '')
 
     try {
-      const barcodes = values.map((value, index) => {
+      const barcodes = values.map((value) => {
         const svg = document.createElementNS(
           'http://www.w3.org/2000/svg',
           'svg',
@@ -33,23 +33,15 @@ export const useBarcodeGenerator = () => {
         })
         svg.setAttribute('width', `${barcodeLength}`)
 
-        const numberSpan =
-          values.length > 1
-            ? `<span class="barcode-number mr-2">${index + 1}.</span>`
-            : ''
-
-        return `<div class="barcode-item flex items-center mb-2">
-          ${numberSpan}
-          <div class="barcode-svg">${svg.outerHTML}</div>
-        </div>`
+        return `<div class="barcode-item">${svg.outerHTML}</div>`
       })
 
-      setOutput(barcodes.join(''))
+      setOutput(barcodes) // Changed: Now setting an array of strings
     } catch (error) {
       console.error('Error generating barcodes:', error)
-      setOutput(
-        `<p>Error generating barcodes.${error}, Please check your input and selected format.</p>`,
-      )
+      setOutput([
+        `<p>Error generating barcodes. ${error}, Please check your input and selected format.</p>`,
+      ]) // Changed: Now setting an array with a single error message
     }
   }, [
     input,

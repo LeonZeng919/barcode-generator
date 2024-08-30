@@ -23,6 +23,13 @@
     },
     "output": {
       "title": "Utdata"
+    },
+    "layout": {
+      "name": "Utskriftslayout",
+      "1x2": "Skriv ut 1 kolumn",
+      "2x3": "Skriv ut 2 kolumner",
+      "3x4": "Skriv ut 3 kolumner",
+      "4x5": "Skriv ut 4 kolumner"
     }
   },
   "scroll": {

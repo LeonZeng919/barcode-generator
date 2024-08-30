@@ -12,8 +12,8 @@ import React, {
 interface BarcodeContextType {
   input: string
   setInput: (input: string) => void
-  output: string
-  setOutput: (output: string) => void
+  output: string[]
+  setOutput: (output: string[]) => void
   barcodeLength: number
   setBarcodeLength: (length: number) => void
   barcodeHeight: number
@@ -71,7 +71,7 @@ export const BarcodeProvider: React.FC<{
     ''
   const [barcodeMargin, setBarcodeMargin] = useState<number>(10)
   const [input, setInput] = useState<string>(initData)
-  const [output, setOutput] = useState<string>('')
+  const [output, setOutput] = useState<string[]>([])
   const [barcodeLength, setBarcodeLength] = useState<number>(
     savedState?.barcodeLength || 260,
   )
